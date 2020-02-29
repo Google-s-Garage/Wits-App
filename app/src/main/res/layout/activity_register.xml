@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".Register">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/wits"
+        android:id="@+id/image"
+        ></ImageView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -134,5 +140,6 @@
             android:textColor="#050505"
             android:textStyle="bold|italic"></EditText>
     </LinearLayout>
+
 
 </LinearLayout>
