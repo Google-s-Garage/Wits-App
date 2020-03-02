@@ -1,2 +1,11 @@
 service_name: circle-ci
 repo_token: ayWt4AL3Q484Xfek7YXPV7f3XwXeyYdvT
+
+after_success:
+  - mvn clean cobertura:cobertura coveralls:report
+after_success:
+  - mvn clean test jacoco:report coveralls:report
+after_success:
+  - mvn clean test saga:coverage coveralls:report
+after_success:
+  - mvn clean test saga:coverage cobertura:cobertura coveralls:report  
