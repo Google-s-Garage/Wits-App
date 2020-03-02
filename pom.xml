@@ -3,6 +3,6 @@
     <artifactId>coveralls-maven-plugin</artifactId>
     <version>4.3.0</version>
     <configuration>
-        <repoToken>yourcoverallsprojectrepositorytoken</repoToken>
+        <repoToken>ayWt4AL3Q484Xfek7YXPV7f3XwXeyYdvT</repoToken>
     </configuration>
 </plugin>
