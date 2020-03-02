@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Register">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/wits"
+        android:id="@+id/image"
+        ></ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal">
+
+     <ImageView
+         android:layout_width="99dp"
+         android:layout_height="match_parent"
+         android:id="@+id/image_Name"
+         android:src="@drawable/pic"
+
+         ></ImageView>
+
+
+
+        <EditText
+            android:id="@+id/name_editText"
+            android:layout_width="327dp"
+            android:layout_height="match_parent"
+            android:hint="Name and Surname"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+
+            android:textColor="#050505"
+            android:textStyle="bold|italic"></EditText>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="99dp"
+            android:layout_height="match_parent"
+            android:id="@+id/image_studentNo"
+            android:src="@drawable/phone"
+
+            ></ImageView>
+
+        <EditText
+            android:id="@+id/studentNo_editText"
+            android:layout_width="327dp"
+            android:layout_height="match_parent"
+            android:hint="Enter Student Number"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+
+            android:textColor="#050505"
+            android:textStyle="bold|italic"></EditText>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="99dp"
+            android:layout_height="match_parent"
+            android:id="@+id/image_create"
+            android:src="@drawable/secLock"
+
+            ></ImageView>
+
+        <EditText
+            android:id="@+id/createPass_editText"
+            android:layout_width="327dp"
+            android:layout_height="match_parent"
+            android:hint="Create Password"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:inputType="text"
+            android:textColor="#050505"
+            android:textStyle="bold|italic"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="99dp"
+            android:layout_height="match_parent"
+            android:id="@+id/image_verify"
+            android:src="@drawable/third"
+
+            ></ImageView>
+        <EditText
+            android:id="@+id/verify_editText"
+            android:layout_width="327dp"
+            android:layout_height="match_parent"
+            android:hint="Verify Password"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+
+            android:textColor="#050505"
+            android:textStyle="bold|italic"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="99dp"
+            android:layout_height="match_parent"
+            android:id="@+id/image_email"
+            android:src="@drawable/at"
+
+            ></ImageView>
+
+        <EditText
+            android:id="@+id/email_editText"
+            android:layout_width="327dp"
+            android:layout_height="match_parent"
+            android:hint="Email"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+
+            android:textColor="#050505"
+            android:textStyle="bold|italic"></EditText>
+    </LinearLayout>
+
+
+</LinearLayout>
