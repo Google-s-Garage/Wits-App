@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ffff">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:layout_height="286dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="45dp"
-                android:src="@drawable/witslogo" />
+                android:src="@drawable/witlogo" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -47,13 +47,13 @@
         android:textSize="20dp"
         android:textColor="#fff" />
     <Button
-        android:id="@+id/Signin"
+        android:id="@+id/Signup"
         android:layout_width="193dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="35dp"
         android:background="#C4FFC107"
-        android:text="Sign In"
+        android:text="Sign Up"
         android:textSize="20dp"
         android:textColor="#090909" />
 
