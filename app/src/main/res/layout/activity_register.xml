@@ -1,145 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#ffff"
     tools:context=".Register">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/wits"
-        android:id="@+id/image"
-        ></ImageView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-
-     <ImageView
-         android:layout_width="99dp"
-         android:layout_height="match_parent"
-         android:id="@+id/image_Name"
-         android:src="@drawable/pic"
-
-         ></ImageView>
-
-
-
-        <EditText
-            android:id="@+id/name_editText"
-            android:layout_width="327dp"
-            android:layout_height="match_parent"
-            android:hint="Name and Surname"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-
-            android:textColor="#050505"
-            android:textStyle="bold|italic"></EditText>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <ImageView
-            android:layout_width="99dp"
-            android:layout_height="match_parent"
-            android:id="@+id/image_studentNo"
-            android:src="@drawable/phone"
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/registerlogo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            ></ImageView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="70dp">
 
-        <EditText
-            android:id="@+id/studentNo_editText"
-            android:layout_width="327dp"
-            android:layout_height="match_parent"
-            android:hint="Enter Student Number"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            <ImageView
+                android:layout_width="140px"
+                android:layout_height="140px"
+                android:src="@drawable/pic"/>
 
-            android:textColor="#050505"
-            android:textStyle="bold|italic"></EditText>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:layout_marginTop="30dp"
+                android:hint= "Name And Surname"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="140px"
+                android:layout_height="140px"
+                android:src="@drawable/phone"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint= "Student Number"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="140px"
+                android:layout_height="140px"
+                android:src="@drawable/third"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint= "Create Password"
+                android:inputType="textPassword"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="160px"
+                android:layout_height="140px"
+                android:src="@drawable/pad"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint= "Verify Password"
+                android:inputType="textPassword"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="140px"
+                android:layout_height="140px"
+                android:src="@drawable/at"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint= "Email Address"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="140px"
+                android:layout_height="140px"
+                android:src="@drawable/msg"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint= "Verify Email Address"
+                />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Sign Up"
+            android:background="#3F51B5"/>
+
+
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="99dp"
-            android:layout_height="match_parent"
-            android:id="@+id/image_create"
-            android:src="@drawable/secLock"
-
-            ></ImageView>
-
-        <EditText
-            android:id="@+id/createPass_editText"
-            android:layout_width="327dp"
-            android:layout_height="match_parent"
-            android:hint="Create Password"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_gravity="center"
-            android:gravity="center_vertical"
-            android:inputType="text"
-            android:textColor="#050505"
-            android:textStyle="bold|italic"></EditText>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="99dp"
-            android:layout_height="match_parent"
-            android:id="@+id/image_verify"
-            android:src="@drawable/third"
-
-            ></ImageView>
-        <EditText
-            android:id="@+id/verify_editText"
-            android:layout_width="327dp"
-            android:layout_height="match_parent"
-            android:hint="Verify Password"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-
-            android:textColor="#050505"
-            android:textStyle="bold|italic"></EditText>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="99dp"
-            android:layout_height="match_parent"
-            android:id="@+id/image_email"
-            android:src="@drawable/at"
-
-            ></ImageView>
-
-        <EditText
-            android:id="@+id/email_editText"
-            android:layout_width="327dp"
-            android:layout_height="match_parent"
-            android:hint="Email"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-
-            android:textColor="#050505"
-            android:textStyle="bold|italic"></EditText>
-    </LinearLayout>
+</ScrollView>
 
 
-</LinearLayout>
