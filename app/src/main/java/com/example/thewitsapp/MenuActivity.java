@@ -14,5 +14,5 @@ public class MenuActivity extends AppCompatActivity {
 
     //When clicked these buttons take us the respective activities.
 
-
+    //buttons here
 }
