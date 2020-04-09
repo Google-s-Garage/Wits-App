@@ -11,4 +11,8 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
     }
+
+    //When clicked these buttons take us the respective activities.
+
+    //buttons here
 }
