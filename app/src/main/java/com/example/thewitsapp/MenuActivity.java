@@ -1,8 +1,11 @@
 package com.example.thewitsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -10,9 +13,56 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        //individual cards...
+        CardView userProfile = findViewById(R.id.profileCard);
+        CardView overflowCard = findViewById(R.id.overflowCard);
+        CardView safeSpaceCard = findViewById(R.id.safespaceCard);
+        CardView healthCard = findViewById(R.id.healthCard);
+        CardView accomodationCard = findViewById(R.id.accomodationCard);
+        CardView creativesCard = findViewById(R.id.creativesCard);
+
+        //onclicks of the cards
+        userProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MenuActivity.this,"userProfile clicked",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        overflowCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        safeSpaceCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        healthCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        accomodationCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        creativesCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
-
-    //When clicked these buttons take us the respective activities.
-
-    //buttons here
 }

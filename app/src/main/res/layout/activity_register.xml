@@ -38,6 +38,7 @@
                 android:src="@drawable/pic"/>
 
             <EditText
+                android:id="@+id/nameAndSurname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                android:layout_marginTop="30dp"
@@ -61,6 +62,7 @@
                 android:src="@drawable/phone"/>
 
             <EditText
+                android:id="@+id/stdNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -83,6 +85,7 @@
                 android:src="@drawable/third"/>
 
             <EditText
+                android:id="@+id/createPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -107,6 +110,7 @@
                 android:src="@drawable/pad"/>
 
             <EditText
+                android:id="@+id/veriPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -131,6 +135,7 @@
                 android:src="@drawable/at"/>
 
             <EditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -154,6 +159,7 @@
                 android:src="@drawable/msg"/>
 
             <EditText
+                android:id="@+id/veriEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -162,6 +168,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/regiButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
