@@ -26,8 +26,8 @@ public abstract class ServerCommunicator extends AsyncTask<String, String, Strin
         this.params = params;
     }
 
-    @Override
-    protected abstract void onPreExecute();  //while loading
+//    @Override
+//    protected abstract void onPreExecute();  //while loading
 
     @Override
     protected String doInBackground(String... strings) { //while enstablishing connection....
