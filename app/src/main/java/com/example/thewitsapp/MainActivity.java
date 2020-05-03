@@ -48,11 +48,13 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
                     studentNumber.setError("Input required");
                 }
 
-                if(TextUtils.isEmpty(password.getText().toString().trim())){
+                else if(TextUtils.isEmpty(password.getText().toString().trim())){
                     password.setError("Input required");
                 }
 
-                if(!TextUtils.isDigitsOnly(studentNumber.getText().toString().trim())) studentNumber.setError("Input numbers only");
+                else if(!TextUtils.isDigitsOnly(studentNumber.getText().toString().trim())){
+                    studentNumber.setError("Input numbers only");
+                }
 
                 else{
                     int stud_num = Integer.parseInt(studentNumber.getText().toString().trim());
@@ -87,6 +89,9 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
 
                 else{
                     Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
+                   // Intent intent = new Intent(context,MenuActivity.class);
+                    //startActivity(intent);
+                    //finish();
                 }
             }
         }.execute();

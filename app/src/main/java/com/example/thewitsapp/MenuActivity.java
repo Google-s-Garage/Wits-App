@@ -43,7 +43,7 @@ public class MenuActivity extends AppCompatActivity {
         safeSpaceCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(MenuActivity.this, SafeSpace.class));
             }
         });
 

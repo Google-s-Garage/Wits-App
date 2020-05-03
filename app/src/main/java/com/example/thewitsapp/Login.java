@@ -25,7 +25,7 @@ public class Login extends AppCompatActivity { //Activity should actually be the
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative1);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout1);
         handler.postDelayed(runnable, 2000);
 
         Button register_button = findViewById(R.id.Signup);
