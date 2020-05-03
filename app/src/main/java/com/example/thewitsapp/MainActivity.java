@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
 
                 else{
                     Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
-                   // Intent intent = new Intent(context,MenuActivity.class);
-                    //startActivity(intent);
-                    //finish();
+                    Intent intent = new Intent(context,MenuActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         }.execute();

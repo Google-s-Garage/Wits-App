@@ -43,8 +43,10 @@ public class MenuActivity extends AppCompatActivity {
         safeSpaceCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, SafeSpace.class));
-            }
+                Toast.makeText(MenuActivity.this,"Invalid Login input",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MenuActivity.this, SafeSpace.class);
+                startActivity(intent);
+                finish();            }
         });
 
         healthCard.setOnClickListener(new View.OnClickListener() {
