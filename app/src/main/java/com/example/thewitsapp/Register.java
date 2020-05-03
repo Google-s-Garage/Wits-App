@@ -31,6 +31,7 @@ public class Register extends AppCompatActivity {
        singUpButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+               //
 
 
                //variables to be passed
