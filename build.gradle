@@ -19,7 +19,7 @@ buildscript {
 
     }
     
-    apply plugin: 'jacoco-android'
+    apply plugin: 'jacoco'
 }
 
 allprojects {
