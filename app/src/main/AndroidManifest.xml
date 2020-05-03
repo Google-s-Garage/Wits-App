@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.thewitsapp">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -12,10 +11,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".Login"></activity>
+            android:parentActivityName=".Login" />
         <activity
             android:name=".Register"
-            android:parentActivityName=".Login"></activity>
+            android:parentActivityName=".Login" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".Login">
             <intent-filter>
@@ -25,5 +24,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

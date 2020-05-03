@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //
+
         final EditText studentNumber = findViewById(R.id.studentNumberLogin);
         final EditText password = findViewById(R.id.passwordLogin);
         Button login_button = findViewById(R.id.login_button);
