@@ -17,7 +17,7 @@ public class MenuActivity extends AppCompatActivity {
 
         //individual cards...
         CardView userProfile = findViewById(R.id.profileCard);
-        CardView overflowCard = findViewById(R.id.overflowCard);
+        final CardView overflowCard = findViewById(R.id.overflowCard);
         CardView safeSpaceCard = findViewById(R.id.safespaceCard);
         CardView healthCard = findViewById(R.id.healthCard);
         CardView accomodationCard = findViewById(R.id.accomodationCard);
@@ -35,18 +35,19 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
+                startActivity(new Intent(MenuActivity.this,overflow.class));
+                //I won't finish for now.
             }
         });
 
         safeSpaceCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MenuActivity.this,"Invalid Login input",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuActivity.this,"Safe Space",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MenuActivity.this, SafeSpace.class);
                 startActivity(intent);
-                finish();            }
+                //finish();
+                }
         });
 
         healthCard.setOnClickListener(new View.OnClickListener() {
