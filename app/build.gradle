@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'jacoco'
+apply plugin: 'jacoco-android'
 
 
 android {
@@ -24,10 +24,19 @@ android {
         }
 
         debug {
+            versionNameSuffix '-debug'
             testCoverageEnabled true
         }
     }
 
+}
+
+jacoco {
+    toolVersion = "0.8.4"
+}
+
+tasks.withType(Test){
+    jacoco.includeNoLocationClasses = true
 }
 
 dependencies {
