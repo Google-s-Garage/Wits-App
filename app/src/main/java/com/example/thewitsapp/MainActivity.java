@@ -18,7 +18,7 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity { /*we will use this activity as the login activity. I am lazy to do the copy
                                                        I am lazy to copy and rearrange. Khutso*/
-
+    public static int userID;
 
 //the xml can be edited at this point I am concerned with the functionality
     @Override
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
     }
 
     @SuppressLint("StaticFieldLeak")
-    public void Login(final Context context, int student_number, int password){
+    public void Login(final Context context, final int student_number, int password){
 
         ContentValues contentValues = new ContentValues();
 
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
             @Override
             protected void onPostExecute(String output) {
                 if(output.equals("1")){
-
+                    userID = student_number;
                     Intent intent = new Intent(context,MenuActivity.class);
                     Toast.makeText(context,"Successfully Logged in",Toast.LENGTH_SHORT).show();
                     startActivity(intent);
@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
                 }
 
                 else{
+                    userID = student_number;
                     Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context,MenuActivity.class);
                     startActivity(intent);

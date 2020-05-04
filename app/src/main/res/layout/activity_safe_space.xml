@@ -22,10 +22,12 @@
         android:layout_height="60dp"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="330dp"
-        android:background="@drawable/linear"
+        android:backgroundTint="#C4F66E43"
         android:text="CHATROOM"
         android:textColor="#000"
-        android:textSize="30dp"></Button>
+        android:textSize="25dp">
+
+    </Button>
 
     <ImageView
         android:layout_width="match_parent"

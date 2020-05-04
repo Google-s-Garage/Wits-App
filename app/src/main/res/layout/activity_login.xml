@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="35dp"
-        android:background="#0D48A1"
+        android:backgroundTint="#0D48A1"
         android:text="Log In"
         android:textSize="20dp"
         android:textColor="#fff" />
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="35dp"
-        android:background="#C4FFC107"
+        android:backgroundTint="#C4FFC107"
         android:text="Sign Up"
         android:textSize="20dp"
         android:textColor="#090909" />

@@ -9,9 +9,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.ContentValues;
 import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +28,7 @@ public class safeSpaceDiscussions extends AppCompatActivity {
     private Toolbar toolbar;
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    private LinearLayout linearLayout;
 
     //declare fragments
     private MyDiscussions myDiscussions;
@@ -30,8 +38,6 @@ public class safeSpaceDiscussions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_safe_space_discussions);
-
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -50,7 +56,6 @@ public class safeSpaceDiscussions extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_forum_black_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_person_outline_black_24dp);
-
 
     }
 
