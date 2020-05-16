@@ -35,7 +35,7 @@ jacoco {
     toolVersion = "0.8.4"
 }
 
-tasks.withType(Test){
+tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
 }
 
