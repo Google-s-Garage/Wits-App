@@ -39,11 +39,11 @@
     </ScrollView>
 
     <EditText
+        android:background="@drawable/radius_corner_background"
         android:id="@+id/commentBar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:ems="15"
-        android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
