@@ -59,11 +59,13 @@ public class MyDiscussions extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -74,9 +76,10 @@ public class MyDiscussions extends Fragment {
         return view;
     }
        
+    @SuppressLint("StaticFieldLeak")
     private void init(View view) {
 
-        linearLayout = view.findViewById(R.id.linearlayout2);
+        linearLayout = view.findViewById(R.id.linearlayout3);
         linearLayout.removeAllViews();
         ContentValues contentValues = new ContentValues();
         contentValues.put("USER_ID", MainActivity.userID);
@@ -103,8 +106,13 @@ public class MyDiscussions extends Fragment {
                         //TextView date = view.findViewById(R.id.date);
 
                         //name.setText(jsonObject.getString("NAME"));
-                        message.setText(jsonObject.getString("SAFE_MESSAGE"));
+                        message.setText(jsonObject.getString("SAFE_MSG"));
                         //date.setText(jsonObject.getString("DATE"));
+
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        //params.setMargins(1,1,1,1);
+
+                        linearLayout.addView(view,params);
                     }
 
                 } catch (JSONException e) {

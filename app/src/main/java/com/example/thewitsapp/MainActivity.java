@@ -89,7 +89,11 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
 
                 else{
                     userID = student_number;
-                    Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context,MenuActivity.class);
+                    Toast.makeText(context,"Successfully Logged in",Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                    finish();
                 }
             }
         }.execute();
