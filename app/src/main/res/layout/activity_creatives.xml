@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/creatives_photography_card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:cardCornerRadius="40dp"
@@ -45,6 +46,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/creatives_music_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="40dp"
@@ -77,6 +79,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/creatives_visualArts_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="40dp"
@@ -110,6 +113,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/creatives_interestGroupd_card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:cardCornerRadius="40dp"
