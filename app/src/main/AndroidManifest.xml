@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".photographyUploader"></activity>
+        <activity android:name=".photographyActivity" />
         <activity android:name=".creativesActivity" />
         <activity android:name=".overflowComment" />
         <activity android:name=".inputQuestion" />
