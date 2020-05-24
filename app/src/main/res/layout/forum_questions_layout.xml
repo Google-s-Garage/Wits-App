@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#A1CBDD"
         android:orientation="vertical">
 
         <LinearLayout
@@ -24,11 +27,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/userName"
+                android:id="@+id/userID"
+                android:textSize="20dp"
                 android:textStyle="bold"
-                android:text="User"
-                android:layout_marginTop="5dp"
-                android:textSize="10dp">
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="5dp"
+                android:text="USER">
 
             </TextView>
 
@@ -42,6 +46,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="25dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="5dp"
                 android:text="Question :">
@@ -52,11 +57,46 @@
                 android:id="@+id/comment_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="3dp"
                >
 
             </TextView>
+
+        </LinearLayout>
+
+        <!--Will think about it-->
+
+        <ImageView
+            android:id="@+id/inflateImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_message_comment">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/commentButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comment"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="4dp"/>
+
 
         </LinearLayout>
 

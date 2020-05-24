@@ -46,6 +46,14 @@ public class overflow extends AppCompatActivity {
 
             View view = View.inflate(overflow.this,R.layout.forum_questions_layout,null); //what we are inflating with
             ((TextView) view.findViewById(R.id.comment_textview)).setText(tempQuestions.get(i));
+            TextView commentView = view.findViewById(R.id.commentButton); //it textview which will be clickable
+
+            commentView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(overflow.this,overflowComment.class)); //going to comment...
+                }
+            });
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             params.setMargins(10,10,10,10);

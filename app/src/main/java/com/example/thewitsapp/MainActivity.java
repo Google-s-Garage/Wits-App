@@ -60,11 +60,7 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
                     int stud_num = Integer.parseInt(studentNumber.getText().toString().trim());
                     int pass = Integer.parseInt(password.getText().toString().trim());
 
-                    try{
                     Login(MainActivity.this,stud_num,pass);
-                    }catch (Exception e){
-                        System.out.println(e.getMessage());
-                    };
                 }
             }
         });
@@ -93,8 +89,9 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
 
                 else{
                     userID = student_number;
+                    //Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context,MenuActivity.class);
-                    Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"Successfully Logged in",Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                     finish();
                 }

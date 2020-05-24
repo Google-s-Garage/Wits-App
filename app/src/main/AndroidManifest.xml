@@ -10,8 +10,12 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".inputQuestion"></activity>
-        <activity android:name=".overflow"></activity>
+        <activity android:name=".photographyUploader"></activity>
+        <activity android:name=".photographyActivity" />
+        <activity android:name=".creativesActivity" />
+        <activity android:name=".overflowComment" />
+        <activity android:name=".inputQuestion" />
+        <activity android:name=".overflow" />
         <activity
             android:name=".MainActivity"
             android:parentActivityName=".Login" />
