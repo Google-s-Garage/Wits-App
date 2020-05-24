@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import java.io.BufferedReader;
 
-public class Login extends AppCompatActivity { //Activity should actually be the main. But some did their things.
+public class Login extends AppCompatActivity {
 
     RelativeLayout relativeLayout;
     Handler handler = new Handler();
@@ -25,13 +25,12 @@ public class Login extends AppCompatActivity { //Activity should actually be the
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout1);
-        //handler.postDelayed(runnable, 2000);
+
+        //NB!!!!
+        //This activity is the activity where you can select your option to login or register.
 
         Button register_button = findViewById(R.id.Signup);
         Button login_button = findViewById(R.id.Login);
-
-        //
 
         register_button.setOnClickListener(new View.OnClickListener() {
             @Override

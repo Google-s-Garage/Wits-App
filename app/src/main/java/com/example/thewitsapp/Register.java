@@ -105,8 +105,8 @@ public class Register extends AppCompatActivity {
 
                     Toast.makeText(context,"Change Password or Username", Toast.LENGTH_SHORT).show();
 
-
                 }
+
                 else{
 
                     Toast.makeText(context,"Successfully Registered",Toast.LENGTH_SHORT).show();
