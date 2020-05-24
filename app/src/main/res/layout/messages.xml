@@ -19,14 +19,18 @@
                 android:layout_height="wrap_content"
                 android:background="#3F51B5"
                 android:textColor="#000"
-                android:textSize="25dp"></TextView>
+                android:textSize="25dp"
+                android:text="Anonymous05:">
+
+            </TextView>
 
             <TextView
                 android:id="@+id/MSG_ID"
                 android:layout_width="99dp"
                 android:layout_height="match_parent"
                 android:background="#3F51B5"
-                android:textColor="#000">
+                android:textColor="#3F51B5"
+                android:text="1">
 
             </TextView>
         </LinearLayout>
@@ -37,7 +41,8 @@
                 android:textSize="30dp"
                 android:textColor="#fff"
                 android:textStyle="italic"
-                android:background="#3F51B5">
+                android:background="#3F51B5"
+                android:text="Hi this is my story!">
             </TextView>
             <TextView
                 android:layout_width="match_parent"
@@ -45,7 +50,8 @@
                 android:id="@+id/date"
                 android:textSize="15dp"
                 android:textColor="#000"
-                android:gravity="right">
+                android:gravity="right"
+                android:text="25 Dece,ber 2019">
             </TextView>
 
     </LinearLayout>

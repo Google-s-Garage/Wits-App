@@ -25,8 +25,6 @@ import java.util.ArrayList;
 
 public class MyDiscussions extends Fragment {
 
-
-    private LinearLayout linearLayout;
     private ArrayList<String> arrayList;
 
 
@@ -44,9 +42,15 @@ public class MyDiscussions extends Fragment {
     }
 
     private void init(View view) {
+/*LinearLayout linearLayout = (LinearLayout) getActivity().findViewById(R.id.inc_frag_tab);
 
-        linearLayout = view.findViewById(R.id.myDiscLayout);
+        LayoutInflater vi = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+*/
+        final LinearLayout linearLayout = (LinearLayout)  getActivity().findViewById(R.id.myDiscLayout);
         linearLayout.removeAllViews();
+
+        final LayoutInflater vi = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         ContentValues contentValues = new ContentValues();
         contentValues.put("USER_ID", MainActivity.userID);
 
@@ -66,11 +70,11 @@ public class MyDiscussions extends Fragment {
                         final Context context = getActivity().getApplicationContext();
 
                         @SuppressLint("StaticFieldLeak")
-                        final View view = View.inflate(context, R.layout.messages, null);
-                        TextView name = view.findViewById(R.id.name);
-                        TextView message = view.findViewById(R.id.message);
-                        TextView date = view.findViewById(R.id.date);
-                        TextView id = view.findViewById(R.id.MSG_ID);
+                        final View view = vi.inflate(R.layout.messages, null);
+                        TextView name = (TextView) view.findViewById(R.id.name);
+                        TextView message = (TextView) view.findViewById(R.id.message);
+                        TextView date = (TextView) view.findViewById(R.id.date);
+                        TextView id = (TextView) view.findViewById(R.id.MSG_ID);
 
 
                         name.setText(jsonObject.getString("SAFE_NAME"));
