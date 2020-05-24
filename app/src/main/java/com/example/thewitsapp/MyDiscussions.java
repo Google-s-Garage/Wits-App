@@ -5,6 +5,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,65 +20,37 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MyDiscussions#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class MyDiscussions extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
+
     private LinearLayout linearLayout;
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public MyDiscussions() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MyDiscussions.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MyDiscussions newInstance(String param1, String param2) {
-        MyDiscussions fragment = new MyDiscussions();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private ArrayList<String> arrayList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_discussions, container, false);
-        init(view);
         return view;
     }
-       
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        init(view);
+    }
+
     private void init(View view) {
 
-        linearLayout = view.findViewById(R.id.linearlayout2);
+        linearLayout = view.findViewById(R.id.myDiscLayout);
         linearLayout.removeAllViews();
         ContentValues contentValues = new ContentValues();
         contentValues.put("USER_ID", MainActivity.userID);
@@ -98,13 +72,19 @@ public class MyDiscussions extends Fragment {
 
                         @SuppressLint("StaticFieldLeak")
                         final View view = View.inflate(context, R.layout.messages, null);
-                        //TextView name = view.findViewById(R.id.name);
+                        TextView name = view.findViewById(R.id.name);
                         TextView message = view.findViewById(R.id.message);
-                        //TextView date = view.findViewById(R.id.date);
+                        TextView date = view.findViewById(R.id.date);
+                        TextView MSG_ID = view.findViewById(R.id.MSG_ID);
 
-                        //name.setText(jsonObject.getString("NAME"));
-                        message.setText(jsonObject.getString("SAFE_MESSAGE"));
-                        //date.setText(jsonObject.getString("DATE"));
+                        name.setText(jsonObject.getString("SAFE_NAME"));
+                        message.setText(jsonObject.getString("SAFE_MSG"));
+                        date.setText(jsonObject.getString("SAFE_DATE"));
+                        MSG_ID.setText(jsonObject.getString("SAFE_MSG_ID")); //need the php to return this value!
+
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                        params.setMargins(10,10,10,10);
+                        linearLayout.addView(view,params);
                     }
 
                 } catch (JSONException e) {

@@ -10,15 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/linearlayout3">
+        android:id="@+id/myDiscLayout">
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-
-
-        </ScrollView>
+            android:layout_height="match_parent"></ScrollView>
     </LinearLayout>
 
 </FrameLayout>

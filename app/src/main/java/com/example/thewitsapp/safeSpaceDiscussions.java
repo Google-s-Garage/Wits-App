@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class safeSpaceDiscussions extends AppCompatActivity {
+
 //dynamically add tab items
     private Toolbar toolbar;
     private ViewPager viewPager;

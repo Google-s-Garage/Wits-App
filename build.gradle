@@ -10,7 +10,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.1'
+        classpath 'com.android.tools.build:gradle:3.6.3'
         classpath 'com.dicedmelon.gradle:jacoco-android:0.1.4'
 
         // 'com.dicedmelon.gradle:jacoco-android:0.1.1'
