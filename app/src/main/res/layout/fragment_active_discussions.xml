@@ -8,13 +8,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/activeDiscLayout">
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/activeDiscLayout">
+        </LinearLayout>
     </ScrollView>
+
 
 </FrameLayout>

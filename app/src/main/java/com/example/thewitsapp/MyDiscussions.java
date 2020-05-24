@@ -29,11 +29,6 @@ public class MyDiscussions extends Fragment {
     private LinearLayout linearLayout;
     private ArrayList<String> arrayList;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -75,12 +70,13 @@ public class MyDiscussions extends Fragment {
                         TextView name = view.findViewById(R.id.name);
                         TextView message = view.findViewById(R.id.message);
                         TextView date = view.findViewById(R.id.date);
-                        TextView MSG_ID = view.findViewById(R.id.MSG_ID);
+                        TextView id = view.findViewById(R.id.MSG_ID);
+
 
                         name.setText(jsonObject.getString("SAFE_NAME"));
                         message.setText(jsonObject.getString("SAFE_MSG"));
                         date.setText(jsonObject.getString("SAFE_DATE"));
-                        MSG_ID.setText(jsonObject.getString("SAFE_MSG_ID")); //need the php to return this value!
+                        id.setText(jsonObject.getString("SAFE_MSG_ID"));
 
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
                         params.setMargins(10,10,10,10);

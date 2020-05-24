@@ -12,9 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="279dp"
         android:layout_marginTop="0dp"
-        android:src="@drawable/love">
+        android:src="@drawable/love"></ImageView>
 
-    </ImageView>
     <Button
         android:id="@+id/chatRoomBtn"
         android:layout_width="200dp"
@@ -27,6 +26,13 @@
         android:textSize="25dp">
 
     </Button>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:src="@drawable/love">
+
+    </ImageView>
 
     <ImageView
         android:layout_width="match_parent"
