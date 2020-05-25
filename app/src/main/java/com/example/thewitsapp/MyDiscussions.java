@@ -41,6 +41,7 @@ public class MyDiscussions extends Fragment {
         init(view);
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void init(View view) {
 /*LinearLayout linearLayout = (LinearLayout) getActivity().findViewById(R.id.inc_frag_tab);
 
