@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //
-
         final EditText studentNumber = findViewById(R.id.studentNumberLogin);
         final EditText password = findViewById(R.id.passwordLogin);
         Button login_button = findViewById(R.id.login_button);
@@ -72,26 +70,30 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put("USER_ID",student_number);
-        contentValues.put("USER_PASSWORD",password);
+        final String userString = Integer.toString(student_number);
+        final String passString = Integer.toString(password);
+
+        contentValues.put("USER_ID",userString);
+        contentValues.put("USER_PASSWORD",passString);
 
         new ServerCommunicator("http://lamp.ms.wits.ac.za/~s1872817/Login.php",contentValues) {
             @Override
             protected void onPostExecute(String output) {
+
                 if(output.equals("1")){
                     userID = student_number;
                     Intent intent = new Intent(context,MenuActivity.class);
                     Toast.makeText(context,"Successfully Logged in",Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                     finish();
-                    //make sure the are sure you want to exit is done
+
                 }
 
                 else{
                     userID = student_number;
                     //Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context,MenuActivity.class);
-                    Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,output,Toast.LENGTH_LONG).show();
                     startActivity(intent);
                     finish();
                 }
