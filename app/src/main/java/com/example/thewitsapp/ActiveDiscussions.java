@@ -57,7 +57,7 @@ public class ActiveDiscussions extends Fragment {
         contentValues.put("USER_ID", MainActivity.userID);
 
         //firstly need to change and create a php to give u all your messages
-        new ServerCommunicator("http://lamp.ms.wits.ac.za/~s1872817/allSafeMsgs.php", contentValues) {
+        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/allSafeMsgs.php", contentValues) {
             @Override
             protected void onPostExecute(String output) {
 

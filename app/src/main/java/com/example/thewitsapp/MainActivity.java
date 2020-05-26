@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
         contentValues.put("USER_ID",userString);
         contentValues.put("USER_PASSWORD",passString);
 
-        new ServerCommunicator("http://lamp.ms.wits.ac.za/~s1872817/Login.php",contentValues) {
+        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/Login.php",contentValues) {
             @Override
             protected void onPostExecute(String output) {
 
