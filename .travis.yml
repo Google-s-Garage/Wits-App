@@ -43,7 +43,7 @@ branches:
   only:
   - master
 after_success:
-- bash <(curl -s -k https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash) -k
 
 #  ci_env='bash <(curl -s https://codecov.io/env)'
 #  docker run $ci_env ...
