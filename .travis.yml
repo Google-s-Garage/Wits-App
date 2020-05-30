@@ -35,7 +35,6 @@ script:
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
-  - chmod 777 ./gradlew
   - ./gradlew build jacocoTestReport assembleAndroidTest
   - adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
   - ./gradlew connectedCheck
@@ -43,6 +42,7 @@ branches:
   only:
   - master
 after_success:
+- sudo apt-get install ca-certificates
 - bash <(curl -s https://codecov.io/bash) -k
 
 #  ci_env='bash <(curl -s https://codecov.io/env)'
