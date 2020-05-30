@@ -45,7 +45,7 @@ branches:
   - master
 after_success:
 - sudo apt-get install ca-certificates
-- bash <(curl -s -k https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
 
 #  ci_env='bash <(curl -s https://codecov.io/env)'
 #  docker run $ci_env ...
