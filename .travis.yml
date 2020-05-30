@@ -14,9 +14,11 @@ jdk: oraclejdk8
 #   - $HOME/.gradle/caches/
 #   - $HOME/.gradle/wrapper/
 env:
+  "
   global:
   - ANDROID_TARGET=android-22
   - ANDROID_ABI=armeabi-v7a
+  - CODECOV_TOKEN="55a86cd0-1efa-46ff-8765-a28c8d9d9995"
 android:
   components:
   - tools
@@ -43,8 +45,7 @@ branches:
   only:
   - master
 after_success:
-- sudo apt-get install ca-certificates
-- bash <(curl -s -k https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
 
 #  ci_env='bash <(curl -s https://codecov.io/env)'
 #  docker run $ci_env ...
