@@ -42,6 +42,7 @@ public class inputQuestion extends AppCompatActivity {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("QUESTION_MSG",questionBox.getText().toString().trim());
                     contentValues.put("USER_ID",MainActivity.userID);
+                    contentValues.put("USER_NAME", MainActivity.studentNum);
 
                     new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/inputoverflowQuestion.php",contentValues) {
                         @Override

@@ -14,11 +14,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity { /*we will use this activity as the login activity. I am lazy to do the copy
                                                        I am lazy to copy and rearrange. Khutso*/
-    public static int userID;
+    public static int userID, studentNum;
 
 //the xml can be edited at this point I am concerned with the functionality
     @Override
@@ -56,8 +59,9 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
 
                 else{
                     int stud_num = Integer.parseInt(studentNumber.getText().toString().trim());
-                    int pass = Integer.parseInt(password.getText().toString().trim());
+                    String pass = password.getText().toString().trim();
 
+                    studentNum = stud_num;
                     Login(MainActivity.this,stud_num,pass);
                 }
             }
@@ -66,37 +70,38 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
     }
 
     @SuppressLint("StaticFieldLeak")
-    public void Login(final Context context, final int student_number, int password){
+    public void Login(final Context context, final int student_number, String password){
 
         ContentValues contentValues = new ContentValues();
 
         final String userString = Integer.toString(student_number);
-        final String passString = Integer.toString(password);
+        final String passString = password;
 
-        contentValues.put("USER_ID",userString);
+        contentValues.put("STUDENT_NUM",userString);
         contentValues.put("USER_PASSWORD",passString);
 
         new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/Login.php",contentValues) {
             @Override
             protected void onPostExecute(String output) {
 
-                if(output.equals("1")){
-                    userID = student_number;
-                    Intent intent = new Intent(context,MenuActivity.class);
-                    Toast.makeText(context,"Successfully Logged in",Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
-                    finish();
+                    if (output.equals("0")) {
+                        Toast.makeText(context, "Login failed", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        try {
+                            JSONArray jsonArray = new JSONArray(output);
+                            JSONObject jsonObject = jsonArray.getJSONObject(0);
+                            final String id = jsonObject.getString("USER_ID");
+                            userID = Integer.parseInt(id);
 
-                }
+                            Toast.makeText(context, "Login Succesful", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(MainActivity.this, MenuActivity.class));
+                            finish();
 
-                else{
-                    userID = student_number;
-                    //Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context,MenuActivity.class);
-                    Toast.makeText(context,output,Toast.LENGTH_LONG).show();
-                    startActivity(intent);
-                    finish();
-                }
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
             }
         }.execute();
     }

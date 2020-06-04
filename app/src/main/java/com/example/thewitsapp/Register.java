@@ -89,7 +89,7 @@ public class Register extends AppCompatActivity {
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put("USER_ID",studentNumber);
+        contentValues.put("STUDENT_NUM",studentNumber);
         contentValues.put("USER_NAME",username);
         contentValues.put("USER_SURNAME",surname);
         contentValues.put("USER_EMAIL",email);
