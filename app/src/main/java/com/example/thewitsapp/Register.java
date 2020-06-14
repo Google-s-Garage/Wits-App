@@ -20,7 +20,8 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
        setContentView(R.layout.activity_register);
 
-       final EditText nameAndSurname = findViewById(R.id.nameAndSurname);
+       final EditText Uname = findViewById(R.id.name);
+       final EditText Usurname = findViewById(R.id.surname);
        final EditText studentNumber = findViewById(R.id.stdNumber);
        final EditText createPass = findViewById(R.id.createPass);
        final EditText veriPass = findViewById(R.id.veriPass);
@@ -35,16 +36,22 @@ public class Register extends AppCompatActivity {
 
 
                //variables to be passed
-               String[] splitter = nameAndSurname.getText().toString().trim().split(" "); //split name and surname
-               String name = splitter[0];
-               String surname = splitter[1];
+               ///String[] splitter = nameAndSurname.getText().toString().trim().split(" "); //split name and surname
+               String name = Uname.getText().toString();
+               String surname = Usurname.getText().toString().trim();
                String student_num = studentNumber.getText().toString().trim();
                String email = Email.getText().toString().trim();
                String password = createPass.getText().toString().trim();
 
                //checking if we have input
-               if(TextUtils.isEmpty(nameAndSurname.getText().toString().trim())){
-                   nameAndSurname.setError("Input Required");
+//               if(TextUtils.isEmpty(nameAndSurname.getText().toString().trim())){
+//                   nameAndSurname.setError("Input Required");
+//               }
+               if(TextUtils.isEmpty(Uname.getText().toString().trim())){
+                   Uname.setError("Input Required");
+               }
+               if(TextUtils.isEmpty(Usurname.getText().toString().trim())){
+                   Uname.setError("Input Required");
                }
 
                if(TextUtils.isEmpty(studentNumber.getText().toString().trim())){
