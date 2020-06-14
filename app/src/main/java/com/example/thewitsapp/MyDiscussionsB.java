@@ -34,7 +34,7 @@ public class MyDiscussionsB extends AppCompatActivity {
         ContentValues contentValues = new ContentValues();
         contentValues.put("USER_ID", MainActivity.userID);
 
-        new ServerCommunicator("http://lamp.ms.wits.ac.za/~s1872817/safeMsgs.php", contentValues) {
+        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/safeMsgs.php", contentValues) {
             @Override
             protected void onPostExecute(String output) {
 

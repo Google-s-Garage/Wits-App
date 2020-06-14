@@ -7,35 +7,16 @@
     tools:context=".safeSpaceB"
     android:background="#fff">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="312dp"
-        android:src="@drawable/lovechatthree">
-    </androidx.appcompat.widget.AppCompatImageView>
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/rLayout">
 
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:backgroundTint="#fff"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="380dp"
-        android:text="My Discussions"
-        android:textColor="#000"
-        android:textSize="20dp"
-        android:textAllCaps="false"
-        android:id="@+id/myDiscBtnB">
-    </Button>
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:backgroundTint="#fff"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="520dp"
-        android:text="Active Discussions"
-        android:textColor="#000"
-        android:textSize="20dp"
-        android:textAllCaps="false"
-        android:id="@+id/actDiscBtnB">
-    </Button>
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

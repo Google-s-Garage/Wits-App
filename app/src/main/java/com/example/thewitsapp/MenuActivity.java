@@ -44,7 +44,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MenuActivity.this,"Safe Space",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MenuActivity.this, safeSpaceB.class);
+                Intent intent = new Intent(MenuActivity.this, safeSpaceDiscussions.class);
                 startActivity(intent);
                 //finish();
                 }
