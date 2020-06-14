@@ -90,10 +90,12 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
                 }
 
                 else{
+
+                    //for some reason output is giving us the wrong answer I don't know why.
                     userID = student_number;
                     //Toast.makeText(context,"Invalid Login input",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context,MenuActivity.class);
-                    Toast.makeText(context,output,Toast.LENGTH_LONG).show();
+                    Toast.makeText(context,"Successfully Logged in",Toast.LENGTH_LONG).show();
                     startActivity(intent);
                     finish();
                 }
