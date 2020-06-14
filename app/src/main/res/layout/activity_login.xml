@@ -20,6 +20,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/witlogo"
                 android:layout_width="wrap_content"
                 android:layout_height="286dp"
                 android:layout_gravity="center_horizontal"
@@ -27,6 +28,7 @@
                 android:src="@drawable/witlogo" />
 
             <TextView
+                android:id="@+id/welcomewords"
                 android:layout_width="wrap_content"
                 android:layout_height="68dp"
                 android:layout_gravity="center_horizontal"
