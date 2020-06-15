@@ -32,10 +32,10 @@ public class MainActivityTest {
     @Test
     public void testEnterDetailClickBotton(){
         onView(withId(R.id.studentNumberLogin))
-                .perform(typeText("1872817"), closeSoftKeyboard())
-                .check(matches(withHint("Student Number")));
+                .perform(typeText("1872817"), closeSoftKeyboard());
 
-        Espresso.onView(withId(R.id.passwordLogin)).perform(typeText("khutso.1999"), closeSoftKeyboard());
+        Espresso.onView(withId(R.id.passwordLogin))
+                .perform(typeText("khutso.1999"), closeSoftKeyboard());
         onView(withId(R.id.login_button))
                 .perform(click());
 

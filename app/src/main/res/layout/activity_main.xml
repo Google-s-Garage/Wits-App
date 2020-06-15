@@ -61,7 +61,7 @@
         android:background="@drawable/radius_corner_background"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="  Student Number"
+        android:hint="Student Number"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
