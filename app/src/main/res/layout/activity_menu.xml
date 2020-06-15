@@ -117,6 +117,7 @@
                         android:src="@drawable/discussion_forum"
                         />
                     <TextView
+                        android:id="@+id/overflow"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Overflow"
@@ -153,6 +154,7 @@
                         android:src="@drawable/main_heart"
                         />
                     <TextView
+                        android:id="@+id/safespace"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Safe Space"
@@ -264,6 +266,7 @@
                         android:src="@drawable/creatives"
                         />
                     <TextView
+                        android:id="@+id/creatives"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Creatives"
