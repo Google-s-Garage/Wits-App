@@ -23,29 +23,18 @@ public class photographyUploader extends AppCompatActivity {
         setContentView(R.layout.activity_photography_uploader);
 
         //see how you will upload the picture and caption into the database. That's all for today. 19/05/20
-
-        FloatingActionButton caption, addPhoto;
-        EditText editCaption = findViewById(R.id.photography_caption);
-         photo = findViewById(R.id.photography_image_view);
-
-        caption = findViewById(R.id.photography_flaot_caption);
-        addPhoto = findViewById(R.id.image_uploader);
-
-        caption.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        //when click the image you must be able to upload
 
 
-        addPhoto.setOnClickListener(new View.OnClickListener() {
+        photo = findViewById(R.id.photography_image_view);
+
+
+        photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent,RESULT_LOAD_IMAGE);
-
             }
         });
 
