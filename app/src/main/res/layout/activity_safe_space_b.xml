@@ -1,22 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".safeSpaceB"
-    android:background="#fff">
+    android:background="#fff"
+    android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
-            android:layout_width="300dp"
+
+        <LinearLayout
+            android:id="@+id/rLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rLayout">
+            android:orientation="vertical"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="5dp">
+        </LinearLayout>
 
-        </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    </ScrollView>
+        <EditText
+            android:id="@+id/myDiscEditText"
+            android:layout_width="339dp"
+            android:layout_height="57dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/radius_corner_background"
+            android:ems="15"
+            android:hint="Write Your Comment"
+            android:inputType="textMultiLine" />
 
-</RelativeLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/MyDiscsendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_send_white" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+</ScrollView>

@@ -29,6 +29,8 @@ public class MyDiscussions extends Fragment {
 
     private ArrayList<String> arrayList;
     public static String MsgId; //should be initialised with the clicked message id
+    public static String Msg;
+    public static String safeName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,7 +55,7 @@ public class MyDiscussions extends Fragment {
         final LayoutInflater vi = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("STUDENT_NUM", MainActivity.userID);
+        contentValues.put("USER_ID", MainActivity.userID);
 
         //firstly need to change and create a php to give u all your messages
         new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/safeMsgs.php", contentValues) {
@@ -72,8 +74,8 @@ public class MyDiscussions extends Fragment {
 
                         @SuppressLint("StaticFieldLeak")
                         final View view = vi.inflate(R.layout.messages, null);
-                        TextView name = (TextView) view.findViewById(R.id.name);
-                        TextView message = (TextView) view.findViewById(R.id.message);
+                        final TextView name = (TextView) view.findViewById(R.id.name);
+                        final TextView message = (TextView) view.findViewById(R.id.message);
                         TextView date = (TextView) view.findViewById(R.id.date);
                         final TextView id = (TextView) view.findViewById(R.id.MSG_ID);
 
@@ -87,6 +89,8 @@ public class MyDiscussions extends Fragment {
                             public void onClick(View v) {
                                 //set the message_id to equal the msg_id we retrieved from the server
                                 MsgId = ((TextView) view.findViewById(R.id.MSG_ID)).getText().toString();
+                                Msg = message.getText().toString().trim();
+                                safeName = name.getText().toString().trim();
                                 Toast.makeText(context, MsgId, Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(context, safeSpaceB.class));
                             }

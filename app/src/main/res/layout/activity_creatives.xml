@@ -31,6 +31,7 @@
                     android:src="@drawable/photography"/>
 
                 <TextView
+                    android:id="@+id/photograpy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Photography"
