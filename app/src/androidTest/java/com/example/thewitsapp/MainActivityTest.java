@@ -3,6 +3,7 @@ package com.example.thewitsapp;
 import android.Manifest;
 import android.widget.EditText;
 
+import androidx.test.espresso.Espresso;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -34,10 +35,7 @@ public class MainActivityTest {
                 .perform(typeText("1872817"), closeSoftKeyboard())
                 .check(matches(withHint("Student Number")));
 
-//        onView(withText(R.id.passwordLogin))
-//                .perform(typeText("khutso.1999"), closeSoftKeyboard());
-//                .check(matches(withHint("Password")));
-
+        Espresso.onView(withId(R.id.passwordLogin)).perform(typeText("khutso.1999"), closeSoftKeyboard());
         onView(withId(R.id.login_button))
                 .perform(click());
 
