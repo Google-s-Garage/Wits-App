@@ -12,14 +12,17 @@
         android:background="@drawable/radius_corner_background">
 
         <ImageView
+            android:id="@+id/thePostImage"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:src="@drawable/post"/>
 
         <TextView
+            android:id="@+id/Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textColor="#000"
             android:text="I am a caption"
             android:textAlignment="center"
             android:gravity="center_horizontal"
