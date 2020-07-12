@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
                             final String id = jsonObject.getString("USER_ID");
                             userID = Integer.parseInt(id);
 
-                            Toast.makeText(context, "Login Succesful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(MainActivity.this, MenuActivity.class));
                             finish();
 

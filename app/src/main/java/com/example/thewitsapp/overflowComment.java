@@ -131,7 +131,10 @@ public class overflowComment extends AppCompatActivity {
                                         if(view.getParent() != null) ((ViewGroup)view.getParent()).removeView(view);
 
                                         linearLayout.addView(view,params);
+
                                     }
+
+                                    commentBar.setText("");
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();

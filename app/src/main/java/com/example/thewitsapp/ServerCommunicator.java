@@ -30,7 +30,7 @@ public abstract class ServerCommunicator extends AsyncTask<String, String, Strin
 //    protected abstract void onPreExecute();  //while loading
 
     @Override
-    protected String doInBackground(String... strings) { //while enstablishing connection....
+    protected String doInBackground(String... strings) { //while establishing connection....
 
         try {
             URL url = new URL(address);

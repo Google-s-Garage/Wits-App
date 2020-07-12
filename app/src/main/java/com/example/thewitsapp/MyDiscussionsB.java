@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class MyDiscussionsB extends AppCompatActivity {
     LinearLayout linearLayout;
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,17 +42,19 @@ public class MyDiscussionsB extends AppCompatActivity {
                     Toast.makeText(MyDiscussionsB.this,"Returning 0",Toast.LENGTH_SHORT).show();
                 }
                 else{
+
                   try {
 
                     JSONArray jsonArray = new JSONArray(output);
 
                     for (int i = 0; i < jsonArray.length(); i++) {
 
+                        final View view = View.inflate(MyDiscussionsB.this,R.layout.messages, null);
+
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-
                         @SuppressLint("StaticFieldLeak")
-                        final View view = View.inflate(MyDiscussionsB.this,R.layout.messages, null);
+
                         TextView name = (TextView) view.findViewById(R.id.name);
                         TextView message = (TextView) view.findViewById(R.id.message);
                         TextView date = (TextView) view.findViewById(R.id.date);
@@ -74,6 +77,6 @@ public class MyDiscussionsB extends AppCompatActivity {
                 }
             }
         }.execute();
-
     }
+
 }
