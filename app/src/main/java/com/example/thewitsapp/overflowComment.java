@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 public class overflowComment extends AppCompatActivity {
 
     LinearLayout linearLayout;
+    String message;
 
     @SuppressLint("StaticFieldLeak")
     @Override
@@ -35,128 +38,82 @@ public class overflowComment extends AppCompatActivity {
 
         linearLayout = findViewById(R.id.commentsHolder);
 
-        Intent intent = getIntent();
-        final String message = intent.getStringExtra("QUESTION_ID");
-
-        final View view = View.inflate(overflowComment.this,R.layout.comments_on_the_overflow,null);
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("QUESTION_ID",message);
+        //getting the question id so we can use it to inflate this view
+        message = getIntent().getStringExtra("QUESTION_ID");
 
 
-
-        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/overflowGetComments.php",contentValues) {
-            @Override
-            protected void onPostExecute(String output) {
-
-                try {
-                    JSONArray jsonArray = new JSONArray(output);
-
-                    linearLayout.removeAllViews();
-
-                    for(int i=0; i < jsonArray.length();i++){
-
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        String comment = jsonObject.getString("RESP_MSG");
-                        String id = jsonObject.getString("USER_ID");
-
-                        TextView user = view.findViewById(R.id.user_id_comment);
-                        TextView commentView = view.findViewById(R.id.commentBubbleHolder);
-
-                        user.setText(id);
-                        commentView.setText(comment);
-
-                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                        params.setMargins(10,10,10,10);
-
-                        if(view.getParent() != null) ((ViewGroup)view.getParent()).removeView(view);
-
-                        linearLayout.addView(view,params);
-
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-        }.execute();
-
-
-        final EditText commentBar = findViewById(R.id.commentBar);
-        FloatingActionButton sendButton = findViewById(R.id.sendCommentButton);
-
-
-        sendButton.setOnClickListener(new View.OnClickListener() { //this supposed to inflate this activity
-            @SuppressLint("StaticFieldLeak")
-            @Override
-            public void onClick(View v) {
-
-                linearLayout.removeAllViews();
-
-                final View view = View.inflate(overflowComment.this,R.layout.comments_on_the_overflow,null);
-
-                if(TextUtils.isEmpty(commentBar.getText().toString().trim())) commentBar.setError("");
-
-                else{
-
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("USER_ID",MainActivity.userID);
-                    contentValues.put("QUESTION_ID",message);
-                    contentValues.put("RESP_MSG",commentBar.getText().toString().trim());
-
-                    new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/overflowPostComment.php",contentValues) {
-                        @Override
-                        protected void onPostExecute(String output) {
-
-                                try {
-                                    JSONArray jsonArray = new JSONArray(output);
-
-                                    for(int i=0; i < jsonArray.length();i++){
-
-                                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                        String comment = jsonObject.getString("RESP_MSG");
-                                        String id = jsonObject.getString("USER_ID");
-
-                                        TextView user = view.findViewById(R.id.user_id_comment);
-                                        TextView commentView = view.findViewById(R.id.commentBubbleHolder);
-
-                                        user.setText(id);
-                                        commentView.setText(comment);
-
-                                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                                        params.setMargins(10,10,10,10);
-
-                                        if(view.getParent() != null) ((ViewGroup)view.getParent()).removeView(view);
-
-                                        linearLayout.addView(view,params);
-
-                                    }
-
-                                    commentBar.setText("");
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-
-                    }.execute();
-
-                }
-
-            }
-        });
     }
 
+
+    //This method is better suited for inflating
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onResume() {
         super.onResume();
 
-        View view = View.inflate(overflowComment.this,R.layout.comments_on_the_overflow,null);
+        //remove whatever was there before:
+        linearLayout.removeAllViews();
+
+        //View view = View.inflate(overflowComment.this,R.layout.comments_on_the_overflow,null);
+        ContentValues params = new ContentValues();
+        params.put("QUESTION_ID",message);
+
+        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/overflowGetComments.php", params) {
+            @Override
+            protected void onPostExecute(String output) {
 
 
+                if(output.equals("0")){
 
+                    Toast.makeText(overflowComment.this,"No Comments Yet",Toast.LENGTH_SHORT).show();
+                }
+
+                else{
+
+
+                    try {
+                        JSONArray jsonArray = new JSONArray(output);
+
+                        for(int i=0; i < jsonArray.length();i++){
+
+                            View view = View.inflate(overflowComment.this,R.layout.comments_on_the_overflow,null);
+
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                            String username = jsonObject.getString("STUDENT_NUM");
+                            String answer = jsonObject.getString("RESP_MSG");
+                            String dateOfAnswer = jsonObject.getString("RESP_DATE");
+
+                            ((TextView) view.findViewById(R.id.user_id_comment)).setText(username);
+                            ((TextView) view.findViewById(R.id.commentBubbleHolder)).setText(answer);
+                            ((TextView) view.findViewById(R.id.date_of_answer)).setText(dateOfAnswer);
+
+                            ImageView likeImage = view.findViewById(R.id.like_button);
+
+                            //On click of the like button:
+                            likeImage.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    Toast.makeText(overflowComment.this,"Clicked Like",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+
+                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            params.setMargins(10,10,10,10);
+
+                            linearLayout.addView(view,params);
+
+
+                        }
+                    } catch (JSONException e) {
+
+                        e.printStackTrace();
+                        Toast.makeText(overflowComment.this,"Something Went Wrong",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        }.execute();
     }
 }
