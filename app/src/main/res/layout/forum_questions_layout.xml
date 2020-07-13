@@ -11,6 +11,12 @@
         android:background="#A1CBDD"
         android:orientation="vertical">
 
+        <!--I know I could have added padding but it's whatever-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,6 +24,7 @@
 
             <ImageView
                 android:layout_marginLeft="2dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_account_overflow">
@@ -46,6 +53,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:textSize="25dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="5dp"
@@ -93,12 +101,38 @@
                 android:layout_height="wrap_content"
                 android:text="Comment"
                 android:textSize="20dp"
+                android:textColor="#03A9F4"
                 android:textStyle="bold"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="4dp"/>
 
 
+            <ImageView
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="7dp"
+                android:src="@drawable/ic_list_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/list_of_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#03A9F4"
+                android:textStyle="bold"
+                android:text="Comments"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="4dp"/>
+
+
         </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
