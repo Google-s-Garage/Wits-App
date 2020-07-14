@@ -131,7 +131,6 @@ public class overflow extends AppCompatActivity {
                                 });
 
                                 //When clicking this the comment must be taken to the database
-                                //we have the question id no biggie
                                 postButton.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
