@@ -35,9 +35,14 @@ public class safeSpaceB extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_safe_space_b);
 
+        //Setting up
+        //The initial things
         init();
 
     }
+
+    //Intial function
+    @SuppressLint("StaticFieldLeak")
     public void init(){
 
         final LinearLayout rLayout = (LinearLayout) findViewById(R.id.rLayout);
@@ -101,6 +106,7 @@ public class safeSpaceB extends AppCompatActivity {
         myDiscEditText = findViewById(R.id.myDiscEditText);
 
         MyDiscCommentButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("StaticFieldLeak")
             @Override
             public void onClick(View v) { //I want u to post to the database as a response but it should come back and be infalted to the left!
                 if(!TextUtils.isEmpty(myDiscEditText.getText().toString())){
@@ -119,6 +125,10 @@ public class safeSpaceB extends AppCompatActivity {
                                 Toast.makeText(safeSpaceB.this,"Question Posted",Toast.LENGTH_SHORT).show();
                                 myDiscEditText.setText(" ");
 
+                                //Essentially what this does it get the messages again
+                                //With the new one now added
+                                init();
+
                             }
 
                             else{
@@ -131,57 +141,5 @@ public class safeSpaceB extends AppCompatActivity {
                 }
             }
         });
-    }
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-
-        final LinearLayout rLayout = (LinearLayout) findViewById(R.id.rLayout);
-        rLayout.removeAllViews();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("SAFE_MSG_ID", MyDiscussions.MsgId);
-
-        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/SafeMsgResponses.php", contentValues) {
-            @Override
-            protected void onPostExecute(String output) {
-                try {
-                    Log.i("tagconvertstr", "["+MyDiscussions.MsgId+"]");
-                    JSONArray jsonArray = new JSONArray(output);
-
-                    for(int i = 0; i < jsonArray.length(); i++){
-
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                        id = Integer.parseInt(jsonObject.getString("USER_ID").trim());
-                        Log.i("tagconvertstr", "["+id+"]");
-                        if(id == MainActivity.userID){
-                            @SuppressLint("StaticFieldLeak")
-                            final View view0 = View.inflate(safeSpaceB.this, R.layout.chat_item_right, null);
-                            TextView msg = (TextView) view0.findViewById(R.id.itemRight);
-                            msg.setText(jsonObject.getString("SAFE_RESP_MSG"));
-                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-                            params.setMargins(10,10,10,10);
-                            rLayout.addView(view0,params);
-
-                        }
-                        else{
-                            @SuppressLint("StaticFieldLeak")
-                            final View view0 = View.inflate(safeSpaceB.this, R.layout.chat_item_left, null);
-                            TextView resp = (TextView) view0.findViewById(R.id.itemLeft);
-                            resp.setText(jsonObject.getString("SAFE_RESP_MSG"));
-                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-                            params.setMargins(10,10,10,10);
-                            rLayout.addView(view0,params);
-                        }
-
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }.execute();
-
-
     }
 }

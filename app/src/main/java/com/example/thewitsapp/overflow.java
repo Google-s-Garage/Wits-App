@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -130,52 +131,54 @@ public class overflow extends AppCompatActivity {
                                 });
 
                                 //When clicking this the comment must be taken to the database
-                                //we have the question id no biggie
                                 postButton.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
 
-                                        String comment = editComment.getText().toString().trim();
 
-                                        ContentValues params = new ContentValues();
-                                        params.put("USER_ID",MainActivity.userID);
-                                        params.put("STUDENT_NUM",MainActivity.studentNum);
-                                        params.put("QUESTION_ID",the_id);
-                                        params.put("RESP_MSG",comment);
+                                        if(TextUtils.isEmpty(editComment.getText().toString().trim())) editComment.setError("No Comment");
+
+                                        //There is some text in the comment bar
+                                        else{
+
+                                            String comment = editComment.getText().toString().trim();
+
+                                            ContentValues params = new ContentValues();
+                                            params.put("USER_ID",MainActivity.userID);
+                                            params.put("STUDENT_NUM",MainActivity.studentNum);
+                                            params.put("QUESTION_ID",the_id);
+                                            params.put("RESP_MSG",comment);
 
 
-                                        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/overflowPostComment.php", params) {
-                                            @Override
-                                            protected void onPostExecute(String output) {
+                                            new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/overflowPostComment.php", params) {
+                                                @Override
+                                                protected void onPostExecute(String output) {
 
-                                                if(output.equals("1")){
+                                                    if(output.equals("1")){
 
-                                                    Toast.makeText(overflow.this,"Comment Posted",Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(overflow.this,"Comment Posted",Toast.LENGTH_SHORT).show();
 
-                                                    editComment.setText("");
+                                                        editComment.setText("");
+                                                    }
+
+                                                    else{
+
+                                                        Toast.makeText(overflow.this,"Couldn't Comment",Toast.LENGTH_SHORT).show();
+                                                    }
+
                                                 }
-
-                                                else{
-
-                                                    Toast.makeText(overflow.this,output,Toast.LENGTH_SHORT).show();
-                                                }
-
-                                            }
-                                        }.execute();
-
-
+                                            }.execute();
+                                        }
                                     }
                                 });
 
                                 commentDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                                 commentDialog.show();
-
                             }
                         });
 
 
-
-
+                        //Params for the Post Cards
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                         params.setMargins(10,10,10,10);
 
@@ -187,7 +190,6 @@ public class overflow extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                //Toast.makeText(overflow.this,output,Toast.LENGTH_LONG).show();
             }
         }.execute();
     }
