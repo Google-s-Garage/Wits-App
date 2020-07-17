@@ -122,7 +122,7 @@ public class safeSpaceB extends AppCompatActivity {
 
                             if(output.equals("1")){
 
-                                Toast.makeText(safeSpaceB.this,"Question Posted",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(safeSpaceB.this,"Replied",Toast.LENGTH_SHORT).show();
                                 myDiscEditText.setText(" ");
 
                                 //Essentially what this does it get the messages again

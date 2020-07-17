@@ -22,6 +22,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity { /*we will use this activity as the login activity. I am lazy to do the copy
                                                        I am lazy to copy and rearrange. Khutso*/
     public static int userID, studentNum;
+    public static String safeName;
 
 //the xml can be edited at this point I am concerned with the functionality
     @Override
@@ -93,6 +94,8 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
                             JSONObject jsonObject = jsonArray.getJSONObject(0);
                             final String id = jsonObject.getString("USER_ID");
                             userID = Integer.parseInt(id);
+
+                            safeName = jsonObject.getString("SAFE_NAME");
 
                             Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(MainActivity.this, MenuActivity.class));

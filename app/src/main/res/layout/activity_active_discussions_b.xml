@@ -1,32 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActiveDiscussionsB"
-    android:orientation="vertical">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Active Discussions"
-        android:textSize="50dp"
-        android:textColor="#000"
-        android:textStyle="bold">
-
-    </TextView>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/act_b_hor_layout">
+
         <LinearLayout
+            android:id="@+id/activ_rLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/activeDiscLayoutB">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         </LinearLayout>
+
     </ScrollView>
 
+    <LinearLayout
+        android:id="@+id/act_b_hor_layout"
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/activDiscEditText"
+            android:layout_width="339dp"
+            android:layout_height="57dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/radius_corner_background"
+            android:ems="15"
+            android:hint="Write Your Comment"
+            android:inputType="textMultiLine" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/activDiscBsendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ic_send_white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

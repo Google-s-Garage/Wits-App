@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class ActiveDiscussions extends Fragment {
 //private LinearLayout linearLayout;
     public static int msgID;
-    public static int safeUserID;
+    public static String safeUsername;
     public static String Msg;
 
 
@@ -66,7 +66,7 @@ public class ActiveDiscussions extends Fragment {
 
                         @SuppressLint("StaticFieldLeak")
                         final View view = View.inflate(context, R.layout.messages, null);
-                        TextView name = view.findViewById(R.id.name);
+                        final TextView name = view.findViewById(R.id.name);
                         final TextView message = view.findViewById(R.id.message);
                         TextView date = view.findViewById(R.id.date);
                         final TextView id = view.findViewById(R.id.MSG_ID);
@@ -82,8 +82,9 @@ public class ActiveDiscussions extends Fragment {
                             @Override
                             public void onClick(View v) {
                                 msgID = Integer.parseInt(id.getText().toString().trim());
+                                safeUsername = name.getText().toString().trim();
                                 Msg = message.getText().toString().trim();
-//                                startActivity(new Intent(context, ActiveDiscussionsB.class));
+                                startActivity(new Intent(context, ActiveDiscussionsB.class));
                             }
                         });
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
