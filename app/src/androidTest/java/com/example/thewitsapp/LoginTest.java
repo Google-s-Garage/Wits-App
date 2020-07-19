@@ -1,10 +1,17 @@
 package com.example.thewitsapp;
 
+import android.view.View;
+
 import androidx.test.espresso.Espresso;
+import androidx.test.espresso.ViewAssertion;
+import androidx.test.espresso.assertion.ViewAssertions;
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,8 +22,10 @@ import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.thatMatchesFirst;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -44,5 +53,26 @@ public class LoginTest {
         onView(withId(R.id.login_button))
                 .perform(click());
     }
+
+//    @Test
+//    public void registerTest(){
+//        onView(withId(R.id.Signup)).perform(click());
+//        onView(withId(R.id.name))
+//                .perform(typeText("Me22"), closeSoftKeyboard());
+//        onView(withId(R.id.surname))
+//                .perform(typeText("Happy2"), closeSoftKeyboard());
+//        onView(withId(R.id.stdNumber))
+//                .perform(typeText("0072"), closeSoftKeyboard());
+//        onView(withId(R.id.createPass))
+//                .perform(typeText("01010"), closeSoftKeyboard());
+//        onView(withId(R.id.veriPass))
+//                .perform(typeText("01010"), closeSoftKeyboard());
+//        onView(withId(R.id.email))
+//                .perform(typeText("me2@gmail.com"), closeSoftKeyboard());
+//        onView(withId(R.id.veriEmail))
+//                .perform(typeText("me2@gmail.com"), closeSoftKeyboard());
+//        onView(withId(R.id.regiButton)).perform(click());
+//
+//    }
 
 }
