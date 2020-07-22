@@ -4,3 +4,4 @@
 
 [![codecov](https://codecov.io/gh/Google-s-Garage/Wits-App/branch/master/graph/badge.svg)](https://codecov.io/gh/Google-s-Garage/Wits-App)
 
+=
