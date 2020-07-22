@@ -31,7 +31,6 @@ import java.util.ArrayList;
 public class overflow extends AppCompatActivity {
 
     LinearLayout linearLayout;
-    static ArrayList<String> tempQuestions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,18 +50,21 @@ public class overflow extends AppCompatActivity {
         });
     }
 
+    //Actually the onResume() will be called after the onCreate()
+    //It is were the magic happens
     @SuppressLint("StaticFieldLeak")
     @Override
-    protected void onResume() { //when we come back..
+    protected void onResume() {
         super.onResume();
 
-        linearLayout.removeAllViews(); //to remove what was then putting what must be =)
+        //to remove what was then putting what must be =)
+        linearLayout.removeAllViews();
 
         ContentValues contentValues = new ContentValues();
-        //contentValues.put("USER_ID", MainActivity.userID);
 
-        //WE want all questions not the ones by the current logged in user only
-
+        //Getting the questions
+        //This will be greatly modified
+        //For categories and tags
         new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/overflowQuestion.php",contentValues) {
             @Override
             protected void onPostExecute(String output) {
@@ -81,9 +83,6 @@ public class overflow extends AppCompatActivity {
                         final String the_id = jsonObject.getString("QUESTION_ID");
                         String username = jsonObject.getString("USER_NAME"); //aka student number
 
-                        //We might need this so I will just leave it here and not comment it
-                        String userID = Integer.toString(MainActivity.userID);
-
                         ((TextView) view.findViewById(R.id.userID)).setText(username); //set the student number as the username
                         ((TextView) view.findViewById(R.id.comment_textview)).setText(question);
 
@@ -91,6 +90,8 @@ public class overflow extends AppCompatActivity {
                         TextView listComments = view.findViewById(R.id.list_of_comments); //list of comments
 
 
+                        //Takes us to the comments activity
+                        //When clicking the Comments textView
                         listComments.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -104,8 +105,8 @@ public class overflow extends AppCompatActivity {
 
 
                         //The dialog is implemented here
-                        //I am reusing used a lot of stuff
-                        //Hope that doesn't break the app =)
+                        //clicking the comment textView
+                        //Allows user to comment by providing a pop up dialog view
                         commentView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -114,7 +115,6 @@ public class overflow extends AppCompatActivity {
                                 final Dialog commentDialog = new Dialog(overflow.this);
 
                                 //The resource layout that we gonna use as the pop alert box
-                                //
                                 commentDialog.setContentView(R.layout.comment_dialog_pop_up);
 
                                 //our views on the dialog
@@ -176,6 +176,7 @@ public class overflow extends AppCompatActivity {
                                 commentDialog.show();
                             }
                         });
+                        //The comment dialog ends here
 
 
                         //Params for the Post Cards
