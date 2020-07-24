@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,11 +41,72 @@ public class overflow extends AppCompatActivity {
         FloatingActionButton addButton = findViewById(R.id.add_comment);
         linearLayout = findViewById(R.id.questions_holder);
 
+        //must make comment dialog pop up
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(overflow.this,inputQuestion.class));
+                //No longer does this but....
+                //startActivity(new Intent(overflow.this,inputQuestion.class));
+
+                //It does this
+                final Dialog addCommentDialog = new Dialog(overflow.this);
+                addCommentDialog.setContentView(R.layout.add_comment_dialog_overflow);
+
+                ImageView cancelDialog = addCommentDialog.findViewById(R.id.add_comment_dialog_cancel);
+                final EditText commentField = addCommentDialog.findViewById(R.id.add_dialog_comment);
+                Button postButton = addCommentDialog.findViewById(R.id.add_comment_dialog_post_button);
+
+                postButton.setOnClickListener(new View.OnClickListener() {
+                    @SuppressLint("StaticFieldLeak")
+                    @Override
+                    public void onClick(View v) {
+
+                        if(TextUtils.isEmpty(commentField.getText().toString().trim())) commentField.setError("Input Required");
+
+                        else{
+
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("QUESTION_MSG",commentField.getText().toString().trim());
+                            contentValues.put("USER_ID",MainActivity.userID);
+                            contentValues.put("USER_NAME", MainActivity.studentNum);
+
+                            new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/inputoverflowQuestion.php", contentValues) {
+                                @Override
+                                protected void onPostExecute(String output) {
+
+                                    if(output.equals("1")){
+
+                                        Toast.makeText(overflow.this,"Question Posted",Toast.LENGTH_SHORT).show();
+                                        commentField.setText("");
+
+                                        //inflate again here
+                                        questionsInflate();
+                                    }
+
+                                    else{
+
+                                        Toast.makeText(overflow.this,"Couldn't Post Question",Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            }.execute();
+
+                        }
+
+                    }
+                });
+
+                //Cancel wanting to add comment
+                cancelDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        addCommentDialog.dismiss();
+                    }
+                });
+
+                addCommentDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                addCommentDialog.show();
 
             }
         });
@@ -56,6 +118,15 @@ public class overflow extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        questionsInflate();
+    }
+
+
+    //will use to inflate
+    @SuppressLint("StaticFieldLeak")
+    public void questionsInflate(){
+
 
         //to remove what was then putting what must be =)
         linearLayout.removeAllViews();
@@ -138,7 +209,7 @@ public class overflow extends AppCompatActivity {
 
                                         if(TextUtils.isEmpty(editComment.getText().toString().trim())) editComment.setError("No Comment");
 
-                                        //There is some text in the comment bar
+                                            //There is some text in the comment bar
                                         else{
 
                                             String comment = editComment.getText().toString().trim();
@@ -193,6 +264,7 @@ public class overflow extends AppCompatActivity {
 
             }
         }.execute();
+
     }
 
 }

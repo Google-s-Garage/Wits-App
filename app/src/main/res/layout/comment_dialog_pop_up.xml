@@ -59,9 +59,5 @@
             app:backgroundTintMode="src_atop"
             />
 
-
-
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

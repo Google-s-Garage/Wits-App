@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".photographyEventDetail"></activity>
+        <activity android:name=".overflowCategory"></activity>
+        <activity android:name=".photographyEventDetail" />
         <activity android:name=".MyDiscussionsB" />
         <activity android:name=".ActiveDiscussionsB" />
         <activity android:name=".safeSpaceB" />
@@ -17,7 +18,6 @@
         <activity android:name=".photographyActivity" />
         <activity android:name=".creativesActivity" />
         <activity android:name=".overflowComment" />
-        <activity android:name=".inputQuestion" />
         <activity android:name=".overflow" />
         <activity
             android:name=".MainActivity"
