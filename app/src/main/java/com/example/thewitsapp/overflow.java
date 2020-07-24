@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,7 +32,6 @@ import java.util.ArrayList;
 public class overflow extends AppCompatActivity {
 
     LinearLayout linearLayout;
-    static ArrayList<String> tempQuestions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,28 +41,101 @@ public class overflow extends AppCompatActivity {
         FloatingActionButton addButton = findViewById(R.id.add_comment);
         linearLayout = findViewById(R.id.questions_holder);
 
+        //must make comment dialog pop up
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(overflow.this,inputQuestion.class));
+                //No longer does this but....
+                //startActivity(new Intent(overflow.this,inputQuestion.class));
+
+                //It does this
+                final Dialog addCommentDialog = new Dialog(overflow.this);
+                addCommentDialog.setContentView(R.layout.add_comment_dialog_overflow);
+
+                ImageView cancelDialog = addCommentDialog.findViewById(R.id.add_comment_dialog_cancel);
+                final EditText commentField = addCommentDialog.findViewById(R.id.add_dialog_comment);
+                Button postButton = addCommentDialog.findViewById(R.id.add_comment_dialog_post_button);
+
+                postButton.setOnClickListener(new View.OnClickListener() {
+                    @SuppressLint("StaticFieldLeak")
+                    @Override
+                    public void onClick(View v) {
+
+                        if(TextUtils.isEmpty(commentField.getText().toString().trim())) commentField.setError("Input Required");
+
+                        else{
+
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("QUESTION_MSG",commentField.getText().toString().trim());
+                            contentValues.put("USER_ID",MainActivity.userID);
+                            contentValues.put("USER_NAME", MainActivity.studentNum);
+
+                            new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/inputoverflowQuestion.php", contentValues) {
+                                @Override
+                                protected void onPostExecute(String output) {
+
+                                    if(output.equals("1")){
+
+                                        Toast.makeText(overflow.this,"Question Posted",Toast.LENGTH_SHORT).show();
+                                        commentField.setText("");
+
+                                        //inflate again here
+                                        questionsInflate();
+                                    }
+
+                                    else{
+
+                                        Toast.makeText(overflow.this,"Couldn't Post Question",Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            }.execute();
+
+                        }
+
+                    }
+                });
+
+                //Cancel wanting to add comment
+                cancelDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        addCommentDialog.dismiss();
+                    }
+                });
+
+                addCommentDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                addCommentDialog.show();
 
             }
         });
     }
 
+    //Actually the onResume() will be called after the onCreate()
+    //It is were the magic happens
     @SuppressLint("StaticFieldLeak")
     @Override
-    protected void onResume() { //when we come back..
+    protected void onResume() {
         super.onResume();
 
-        linearLayout.removeAllViews(); //to remove what was then putting what must be =)
+        questionsInflate();
+    }
+
+
+    //will use to inflate
+    @SuppressLint("StaticFieldLeak")
+    public void questionsInflate(){
+
+
+        //to remove what was then putting what must be =)
+        linearLayout.removeAllViews();
 
         ContentValues contentValues = new ContentValues();
-        //contentValues.put("USER_ID", MainActivity.userID);
 
-        //WE want all questions not the ones by the current logged in user only
-
+        //Getting the questions
+        //This will be greatly modified
+        //For categories and tags
         new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/overflowQuestion.php",contentValues) {
             @Override
             protected void onPostExecute(String output) {
@@ -81,9 +154,6 @@ public class overflow extends AppCompatActivity {
                         final String the_id = jsonObject.getString("QUESTION_ID");
                         String username = jsonObject.getString("USER_NAME"); //aka student number
 
-                        //We might need this so I will just leave it here and not comment it
-                        String userID = Integer.toString(MainActivity.userID);
-
                         ((TextView) view.findViewById(R.id.userID)).setText(username); //set the student number as the username
                         ((TextView) view.findViewById(R.id.comment_textview)).setText(question);
 
@@ -91,6 +161,8 @@ public class overflow extends AppCompatActivity {
                         TextView listComments = view.findViewById(R.id.list_of_comments); //list of comments
 
 
+                        //Takes us to the comments activity
+                        //When clicking the Comments textView
                         listComments.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -104,8 +176,8 @@ public class overflow extends AppCompatActivity {
 
 
                         //The dialog is implemented here
-                        //I am reusing used a lot of stuff
-                        //Hope that doesn't break the app =)
+                        //clicking the comment textView
+                        //Allows user to comment by providing a pop up dialog view
                         commentView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -114,7 +186,6 @@ public class overflow extends AppCompatActivity {
                                 final Dialog commentDialog = new Dialog(overflow.this);
 
                                 //The resource layout that we gonna use as the pop alert box
-                                //
                                 commentDialog.setContentView(R.layout.comment_dialog_pop_up);
 
                                 //our views on the dialog
@@ -138,7 +209,7 @@ public class overflow extends AppCompatActivity {
 
                                         if(TextUtils.isEmpty(editComment.getText().toString().trim())) editComment.setError("No Comment");
 
-                                        //There is some text in the comment bar
+                                            //There is some text in the comment bar
                                         else{
 
                                             String comment = editComment.getText().toString().trim();
@@ -176,6 +247,7 @@ public class overflow extends AppCompatActivity {
                                 commentDialog.show();
                             }
                         });
+                        //The comment dialog ends here
 
 
                         //Params for the Post Cards
@@ -192,6 +264,7 @@ public class overflow extends AppCompatActivity {
 
             }
         }.execute();
+
     }
 
 }
