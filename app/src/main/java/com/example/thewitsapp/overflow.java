@@ -157,7 +157,7 @@ public class overflow extends AppCompatActivity {
                         ((TextView) view.findViewById(R.id.userID)).setText(username); //set the student number as the username
                         ((TextView) view.findViewById(R.id.comment_textview)).setText(question);
 
-                        TextView commentView = view.findViewById(R.id.commentButton); //it textview which will be clickable
+                        TextView commentView = view.findViewById(R.id.commentButton); //it is textView which will be clickable
                         TextView listComments = view.findViewById(R.id.list_of_comments); //list of comments
 
 

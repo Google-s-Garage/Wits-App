@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".overflowCategory"></activity>
+        <activity android:name=".overflowLawPolitics"></activity>
+        <activity android:name=".overflowBiology" />
+        <activity android:name=".overflowAccounting" />
+        <activity android:name=".overflowArts" />
+        <activity android:name=".overflowMath" />
+        <activity android:name=".overflowScience" />
+        <activity android:name=".overflowCategory" />
         <activity android:name=".photographyEventDetail" />
         <activity android:name=".MyDiscussionsB" />
         <activity android:name=".ActiveDiscussionsB" />
