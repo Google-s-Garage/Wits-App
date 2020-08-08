@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".photographyEventDetail">
+    android:background="#423D3D"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/imageToDisplay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:scaleType="centerCrop"
         android:src="@drawable/overflowsix"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,8 +20,7 @@
 
 
     <ScrollView
-
-        android:background="#9A423D3D"
+        android:background="#60423D3D"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -31,15 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageToDisplay2"
-                android:scaleType="centerCrop"
-                android:src="@drawable/overflowsix"
-                android:layout_width="match_parent"
-                android:layout_height="380dp"/>
-
             <androidx.cardview.widget.CardView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="380dp"
                 android:layout_gravity="center"
                 app:cardCornerRadius="20dp"
                 android:layout_width="400dp"
@@ -52,7 +43,6 @@
                 app:layout_constraintVertical_bias="0.564">
 
                 <LinearLayout
-                    android:background="#7001579B"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -259,5 +249,6 @@
 
         </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
