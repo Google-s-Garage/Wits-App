@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
             @Override
             public void onClick(View v) {
 
+                //startActivity(new Intent(MainActivity.this, MenuActivity.class));
+
                 if(TextUtils.isEmpty(studentNumber.getText().toString().trim())){
                     studentNumber.setError("Input required");
                 }
