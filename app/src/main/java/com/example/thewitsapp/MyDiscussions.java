@@ -92,7 +92,7 @@ public class MyDiscussions extends Fragment {
                                 Msg = message.getText().toString().trim();
                                 safeName = name.getText().toString().trim();
                                 Toast.makeText(context, MsgId, Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(context, safeSpaceB.class));
+                                startActivity(new Intent(context, MyDiscussionsB.class));
                             }
                         });
 

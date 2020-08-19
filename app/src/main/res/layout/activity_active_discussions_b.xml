@@ -5,10 +5,16 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <include
+        android:id="@+id/activDisc_toolbar"
+        layout="@layout/app_bar_layout">
+    </include>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/act_b_hor_layout">
+        android:layout_above="@+id/act_b_hor_layout"
+        android:layout_below="@id/activDisc_toolbar">
 
         <LinearLayout
             android:id="@+id/activ_rLayout"
@@ -39,7 +45,7 @@
             android:background="@drawable/radius_corner_background"
             android:ems="15"
             android:hint="Write Your Comment"
-            android:inputType="textMultiLine" />
+            android:inputType="textLongMessage" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/activDiscBsendButton"
