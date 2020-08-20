@@ -216,7 +216,6 @@ public class overflowMath extends AppCompatActivity {
                                                     protected void onPostExecute(String output) {
 
 
-
                                                         if(output.equals("1")){
 
                                                             Toast.makeText(overflowMath.this,"Comment Posted",Toast.LENGTH_SHORT).show();

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.thewitsapp">
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,18 +8,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
-        <activity android:name=".overflowLawPolitics"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".PostOnHealth"></activity>
+        <activity android:name=".Restaurant" />
+        <activity android:name=".beforeHealth" />
+        <activity android:name=".Health" />
+        <activity android:name=".overflowLawPolitics" />
         <activity android:name=".overflowBiology" />
         <activity android:name=".overflowAccounting" />
         <activity android:name=".overflowArts" />
         <activity android:name=".overflowMath" />
         <activity android:name=".overflowScience" />
         <activity android:name=".overflowCategory" />
-        <activity android:name=".AccomTypes"></activity>
-        <activity android:name=".AccomodationMain" />
-        <activity android:name=".ProfilePage" />
         <activity android:name=".photographyEventDetail" />
         <activity android:name=".MyDiscussionsB" />
         <activity android:name=".ActiveDiscussionsB" />
@@ -49,5 +47,8 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>

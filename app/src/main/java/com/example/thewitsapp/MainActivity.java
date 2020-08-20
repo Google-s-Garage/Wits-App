@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
 
                     studentNum = stud_num;
                     Login(MainActivity.this,stud_num,pass);
+
                 }
             }
         });
@@ -90,17 +91,20 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
                     if (output.equals("0")) {
                         Toast.makeText(context, "Login failed", Toast.LENGTH_LONG).show();
                     }
+
                     else {
                         try {
+
                             JSONArray jsonArray = new JSONArray(output);
                             JSONObject jsonObject = jsonArray.getJSONObject(0);
                             final String id = jsonObject.getString("USER_ID");
-                            userID = Integer.parseInt(id);
 
+                            userID = Integer.parseInt(id);
                             safeName = jsonObject.getString("SAFE_NAME");
 
-                            Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(MainActivity.this, MenuActivity.class));
+
+                            Toast.makeText(context,"Successfully logged in",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(context, MenuActivity.class));
                             finish();
 
                         }catch (JSONException e){
@@ -110,5 +114,4 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
             }
         }.execute();
     }
-
 }
