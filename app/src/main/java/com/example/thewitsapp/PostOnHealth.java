@@ -28,6 +28,7 @@ public class PostOnHealth extends AppCompatActivity {
     ImageView photo;
     String strImg;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
