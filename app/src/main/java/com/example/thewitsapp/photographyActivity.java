@@ -54,7 +54,7 @@ public class photographyActivity extends AppCompatActivity {
 
         //remove whatever was there in the linearLayout
         //This helps if we're from the post activity and we want our recent post to appear
-        postsHolder.removeAllViews();
+
 
         ContentValues params = new ContentValues();
 
@@ -62,6 +62,7 @@ public class photographyActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String output) {
 
+                postsHolder.removeAllViews();
 
                 try {
 

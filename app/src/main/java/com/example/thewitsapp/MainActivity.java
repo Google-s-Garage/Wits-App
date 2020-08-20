@@ -112,5 +112,4 @@ public class MainActivity extends AppCompatActivity { /*we will use this activit
             }
         }.execute();
     }
-
 }

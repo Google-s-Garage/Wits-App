@@ -4,6 +4,249 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B8B6B6"
     tools:context=".Health">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--This will hold our restaurants-->
+            <TextView
+                android:id="@+id/tempId"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:text="Restaurants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <HorizontalScrollView
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:id="@+id/restauratsHorizontalHolder"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp">
+
+
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/ourRestRecommendations"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+
+            <!--Recipes Here-->
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:text="Recipes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <HorizontalScrollView
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="160dp">
+
+                <LinearLayout
+                    android:id="@+id/RecipesHorizontalHolder"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/ourRecipRecommendations"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+
+            <!--Health Tips Here-->
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:text="About Foods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <HorizontalScrollView
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="160dp">
+
+                <LinearLayout
+                    android:id="@+id/FoodsHorizontalHolder"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/ourFoodsRecommendations"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:text="Health Tips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <HorizontalScrollView
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/HealthHorizontalHolder"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp">
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/ourHealthTipsRecommendations"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948"
+        android:id="@+id/add_health_post"
+        android:src="@drawable/ic_edit_comment_overflow"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

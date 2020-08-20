@@ -54,6 +54,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                startActivity(new Intent(MenuActivity.this, beforeHealth.class));
             }
         });
 
