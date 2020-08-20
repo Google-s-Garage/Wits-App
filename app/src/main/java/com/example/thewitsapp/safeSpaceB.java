@@ -1,6 +1,12 @@
 package com.example.thewitsapp;
 
+//*****
+//not using this activity so far, I have replaced it with MyDiscussionsB ActiveDiscussions
+//*****
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.ActionBar;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -29,6 +35,7 @@ public class safeSpaceB extends AppCompatActivity {
     FloatingActionButton MyDiscCommentButton;
     EditText myDiscEditText;
     int id;
+    private Toolbar mtoolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,10 @@ public class safeSpaceB extends AppCompatActivity {
         final LinearLayout rLayout = (LinearLayout) findViewById(R.id.rLayout);
         rLayout.removeAllViews();
         //inflate to the left
+
+        mtoolbar = findViewById(R.id.safe_b_toolbar);
+        setSupportActionBar(mtoolbar);
+        getSupportActionBar().setTitle("Messages");
 
         @SuppressLint("StaticFieldLeak")
         final View view1 = View.inflate(safeSpaceB.this, R.layout.chat_item_right, null);

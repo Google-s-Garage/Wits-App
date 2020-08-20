@@ -1,6 +1,7 @@
 package com.example.thewitsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -27,6 +28,7 @@ public class ActiveDiscussionsB extends AppCompatActivity {
     EditText activDiscEditText;
     String safeUsername;
     int id;
+    private Toolbar mtoolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,10 @@ public class ActiveDiscussionsB extends AppCompatActivity {
         final LinearLayout rLayout = (LinearLayout) findViewById(R.id.activ_rLayout);
         rLayout.removeAllViews();
         //inflate to the left
+        mtoolbar = findViewById(R.id.activDisc_toolbar);
+        setSupportActionBar(mtoolbar);
+        getSupportActionBar().setTitle("Messages");
+
 
         @SuppressLint("StaticFieldLeak")
         final View view1 = View.inflate(ActiveDiscussionsB.this, R.layout.chat_item_left, null);
