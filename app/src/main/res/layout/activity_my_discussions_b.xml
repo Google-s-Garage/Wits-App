@@ -52,6 +52,8 @@
             android:id="@+id/MyDiscsendButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_marginLeft="5dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="5dp"
             android:src="@drawable/ic_send_white" />
