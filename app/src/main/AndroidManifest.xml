@@ -8,8 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".overflowLawPolitics"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".PostOnHealth"></activity>
+        <activity android:name=".Restaurant" />
+        <activity android:name=".beforeHealth" />
+        <activity android:name=".Health" />
+        <activity android:name=".overflowLawPolitics" />
         <activity android:name=".overflowBiology" />
         <activity android:name=".overflowAccounting" />
         <activity android:name=".overflowArts" />
@@ -44,5 +49,6 @@
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>

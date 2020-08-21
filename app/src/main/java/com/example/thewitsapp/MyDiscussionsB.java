@@ -1,82 +1,152 @@
 package com.example.thewitsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 public class MyDiscussionsB extends AppCompatActivity {
-    LinearLayout linearLayout;
 
-    @SuppressLint("StaticFieldLeak")
+    FloatingActionButton MyDiscCommentButton;
+    EditText myDiscEditText;
+    int id;
+    private Toolbar mytoolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_discussions_b);
 
-        linearLayout = findViewById(R.id.myDiscLayoutB);
-        linearLayout.removeAllViews();
+        //Setting up
+        //The initial things
+        init();
+
+    }
+
+    //Intial function
+    @SuppressLint("StaticFieldLeak")
+    public void init(){
+
+        final LinearLayout rLayout = (LinearLayout) findViewById(R.id.rLayout);
+        rLayout.removeAllViews();
+        //inflate to the left
+        mytoolbar = findViewById(R.id.myDisc_toolbar);
+        setSupportActionBar(mytoolbar);
+        getSupportActionBar().setTitle("Messages");
+
+
+        @SuppressLint("StaticFieldLeak")
+        final View view1 = View.inflate(MyDiscussionsB.this, R.layout.chat_item_right, null);
+        final TextView msg = (TextView) view1.findViewById(R.id.itemRight);
+        msg.setText(MyDiscussions.Msg);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.setMargins(10,10,10,10);
+        rLayout.addView(view1,params);
+
+        //inflate to the right
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("USER_ID", MainActivity.userID);
+        contentValues.put("SAFE_MSG_ID", MyDiscussions.MsgId);
 
-        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/safeMsgs.php", contentValues) {
+        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/SafeMsgResponses.php", contentValues) {
             @Override
             protected void onPostExecute(String output) {
-
-                if(output.equals("0")){
-                    Toast.makeText(MyDiscussionsB.this,"Returning 0",Toast.LENGTH_SHORT).show();
-                }
-                else{
-
-                  try {
-
+                try {
+                    Log.i("tagconvertstr", "["+MyDiscussions.MsgId+"]");
                     JSONArray jsonArray = new JSONArray(output);
 
-                    for (int i = 0; i < jsonArray.length(); i++) {
-
-                        final View view = View.inflate(MyDiscussionsB.this,R.layout.messages, null);
+                    for(int i = 0; i < jsonArray.length(); i++){
 
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                        @SuppressLint("StaticFieldLeak")
+                        id = Integer.parseInt(jsonObject.getString("USER_ID").trim());
+                        Log.i("tagconvertstr", "["+id+"]");
+                        if(id == MainActivity.userID){
+                            @SuppressLint("StaticFieldLeak")
+                            final View view0 = View.inflate(MyDiscussionsB.this, R.layout.chat_item_right, null);
+                            TextView msg = (TextView) view0.findViewById(R.id.itemRight);
+                            msg.setText(jsonObject.getString("SAFE_RESP_MSG"));
+                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                            params.setMargins(10,10,10,10);
+                            rLayout.addView(view0,params);
 
-                        TextView name = (TextView) view.findViewById(R.id.name);
-                        TextView message = (TextView) view.findViewById(R.id.message);
-                        TextView date = (TextView) view.findViewById(R.id.date);
-                        TextView id = (TextView) view.findViewById(R.id.MSG_ID);
+                        }
+                        else{
+                            @SuppressLint("StaticFieldLeak")
+                            final View view0 = View.inflate(MyDiscussionsB.this, R.layout.chat_item_left, null);
+                            TextView resp = (TextView) view0.findViewById(R.id.itemLeft);
+                            resp.setText(jsonObject.getString("SAFE_RESP_MSG"));
+                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                            params.setMargins(10,10,10,10);
+                            rLayout.addView(view0,params);
+                        }
 
-
-                        name.setText(jsonObject.getString("SAFE_NAME"));
-                        message.setText(jsonObject.getString("SAFE_MSG"));
-                        date.setText(jsonObject.getString("SAFE_DATE"));
-                        id.setText(jsonObject.getString("SAFE_MSG_ID"));
-
-                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-                        params.setMargins(10,10,10,10);
-                        linearLayout.addView(view,params);
                     }
-
                 } catch (JSONException e) {
-                      e.printStackTrace();
-                  }
+                    e.printStackTrace();
                 }
             }
         }.execute();
-    }
 
+        MyDiscCommentButton = findViewById(R.id.MyDiscsendButton);
+        myDiscEditText = findViewById(R.id.myDiscEditText);
+
+        MyDiscCommentButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("StaticFieldLeak")
+            @Override
+            public void onClick(View v) { //I want u to post to the database as a response but it should come back and be infalted to the left!
+                if(!TextUtils.isEmpty(myDiscEditText.getText().toString())){
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("USER_ID",MainActivity.userID);
+                    contentValues.put("SAFE_NAME", MyDiscussions.safeName);
+                    contentValues.put("SAFE_MSG_ID", MyDiscussions.MsgId);
+                    contentValues.put("SAFE_RESP_MSG", myDiscEditText.getText().toString().trim());
+
+                    new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/sendDiscMsg.php",contentValues) {
+                        @Override
+                        protected void onPostExecute(String output) {
+
+                            if(output.equals("1")){
+
+                                Toast.makeText(MyDiscussionsB.this,"Replied",Toast.LENGTH_SHORT).show();
+                                myDiscEditText.setText(" ");
+
+                                //Essentially what this does it get the messages again
+                                //With the new one now added
+                                init();
+
+                            }
+
+                            else{
+                                Toast.makeText(MyDiscussionsB.this,"Network error!",Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        }
+                    }.execute();
+
+                }
+            }
+        });
+    }
 }

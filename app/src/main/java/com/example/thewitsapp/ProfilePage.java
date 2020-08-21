@@ -1,6 +1,7 @@
 package com.example.thewitsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
 public class ProfilePage extends AppCompatActivity {

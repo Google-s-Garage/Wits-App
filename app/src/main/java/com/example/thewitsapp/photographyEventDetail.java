@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -36,6 +38,17 @@ public class photographyEventDetail extends AppCompatActivity {
         TextView dateView = findViewById(R.id.creativesDate);
         TextView timeView = findViewById(R.id.creativesTime);
         ImageView displayImage = findViewById(R.id.imageToDisplay);
+        ImageView displayImage2 = findViewById(R.id.imageToDisplay2);
+        ImageView editPost = findViewById(R.id.editPost);
+
+
+        //editing what you have posted...
+        editPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(photographyEventDetail.this,"I want to edit",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         String imageURL = "https://lamp.ms.wits.ac.za/~s1872817/creativeImgs/"+stdNum+date+time+".JPG";
 
@@ -46,6 +59,10 @@ public class photographyEventDetail extends AppCompatActivity {
         Glide.with(photographyEventDetail.this)
                 .load(imageURL)
                 .into(displayImage);
+
+        Glide.with(photographyEventDetail.this)
+                .load(imageURL)
+                .into(displayImage2);
 
         //setting the details
         stdNUmView.setText(stdNum);

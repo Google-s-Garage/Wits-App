@@ -27,7 +27,8 @@ public class MenuActivity extends AppCompatActivity {
         userProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MenuActivity.this,"userProfile clicked",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MenuActivity.this,"userProfile clicked",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MenuActivity.this,ProfilePage.class));
             }
         });
 
@@ -54,12 +55,15 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                startActivity(new Intent(MenuActivity.this, beforeHealth.class));
             }
         });
 
         accomodationCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, AccomodationMain.class);
+                startActivity(intent);
 
             }
         });
