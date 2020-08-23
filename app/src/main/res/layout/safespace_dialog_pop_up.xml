@@ -32,10 +32,10 @@
 
 
         <ImageView
+            android:layout_width="202dp"
+            android:layout_height="161dp"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_bubble_chart_black_24dp"/>
+            android:src="@drawable/paperplane" />
 
 
         <EditText
@@ -55,7 +55,7 @@
             android:text="comment"
             android:textColor="#000"
             android:textStyle="bold"
-            app:backgroundTint="@color/design_default_color_secondary"
+            app:backgroundTint="#D5B7B7"
             app:backgroundTintMode="src_atop"
             />
 
