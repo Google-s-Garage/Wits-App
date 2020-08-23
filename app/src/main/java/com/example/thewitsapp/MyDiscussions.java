@@ -76,7 +76,7 @@ public class MyDiscussions extends Fragment {
                         final View view = vi.inflate(R.layout.messages, null);
                         final TextView name = (TextView) view.findViewById(R.id.name);
                         final TextView message = (TextView) view.findViewById(R.id.message);
-                        TextView date = (TextView) view.findViewById(R.id.date);
+                        final TextView date = (TextView) view.findViewById(R.id.date);
                         final TextView id = (TextView) view.findViewById(R.id.MSG_ID);
 
                         name.setText(jsonObject.getString("SAFE_NAME"));
