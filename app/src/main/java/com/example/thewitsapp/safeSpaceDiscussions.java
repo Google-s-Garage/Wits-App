@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.graphics.Color;
@@ -46,6 +47,7 @@ public class safeSpaceDiscussions extends AppCompatActivity {
         setContentView(R.layout.activity_safe_space_discussions);
         init();
     }
+
     public void init(){
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -77,6 +79,7 @@ public class safeSpaceDiscussions extends AppCompatActivity {
 
                 //When clicking this the comment must be taken to the database
                 postButton.setOnClickListener(new View.OnClickListener() {
+                    @SuppressLint("StaticFieldLeak")
                     @Override
                     public void onClick(View v) {
 
