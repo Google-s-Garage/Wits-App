@@ -11,6 +11,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".viewHealthPostDetails"></activity>
+        <activity android:name=".AccomodationMain"/>
+        <activity android:name=".AccomTypes"/>
         <activity android:name=".PostOnHealth" />
         <activity android:name=".Restaurant" />
         <activity android:name=".beforeHealth" />
