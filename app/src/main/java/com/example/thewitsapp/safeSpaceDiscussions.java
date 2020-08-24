@@ -179,6 +179,5 @@ public class safeSpaceDiscussions extends AppCompatActivity {
             return fragmentTitle.get(position);
         }
 
-
     }
 }

@@ -116,8 +116,8 @@ public class Health extends AppCompatActivity {
 
                             if(jsonObject.getString("CAT").equals(category)){
 
-                                String nameOfPost = jsonObject.getString("POST_NAME");
-                                String stdNumber = jsonObject.getString("STUDENT_NUM");
+                                final String nameOfPost = jsonObject.getString("POST_NAME");
+                                final String stdNumber = jsonObject.getString("STUDENT_NUM");
                                 String imgURL = "https://lamp.ms.wits.ac.za/~s1872817/HealthPostImgs/"+stdNumber+nameOfPost+".JPG";
 
                                 ImageView postImg = view.findViewById(R.id.healthPostImage);
@@ -132,6 +132,18 @@ public class Health extends AppCompatActivity {
                                 params.setMargins(10,10,10,10);
 
                                 linearLayout.addView(view,params);
+
+                                view.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+                                        Intent toHealthDetails = new Intent(Health.this,viewHealthPostDetails.class);
+                                        toHealthDetails.putExtra("NameOfPost",nameOfPost);
+                                        toHealthDetails.putExtra("STUDENT_NUM",stdNumber);
+                                        startActivity(toHealthDetails);
+
+                                    }
+                                });
 
 
 
@@ -188,8 +200,8 @@ public class Health extends AppCompatActivity {
                         JSONObject jsonObject = withCatObjs.get(withCatObjs.size()-1);
 
 
-                            String nameOfPost = jsonObject.getString("POST_NAME");
-                            String stdNumber = jsonObject.getString("STUDENT_NUM");
+                            final String nameOfPost = jsonObject.getString("POST_NAME");
+                            final String stdNumber = jsonObject.getString("STUDENT_NUM");
                             String imgURL = "https://lamp.ms.wits.ac.za/~s1872817/HealthPostImgs/"+stdNumber+nameOfPost+".JPG";
 
                             ImageView postImg = view.findViewById(R.id.healthRecPostImage);
@@ -204,6 +216,18 @@ public class Health extends AppCompatActivity {
                             params.setMargins(10,10,10,10);
 
                             linearLayout.addView(view,params);
+
+                            view.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    Intent toHealthDetails = new Intent(Health.this,viewHealthPostDetails.class);
+                                    toHealthDetails.putExtra("NameOfPost",nameOfPost);
+                                    toHealthDetails.putExtra("STUDENT_NUM",stdNumber);
+                                    startActivity(toHealthDetails);
+
+                                }
+                            });
 
 
 

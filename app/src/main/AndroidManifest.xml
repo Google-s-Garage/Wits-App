@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PostOnHealth"></activity>
+        <activity android:name=".viewHealthPostDetails"></activity>
+        <activity android:name=".PostOnHealth" />
         <activity android:name=".Restaurant" />
         <activity android:name=".beforeHealth" />
         <activity android:name=".Health" />
@@ -46,8 +47,8 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>
