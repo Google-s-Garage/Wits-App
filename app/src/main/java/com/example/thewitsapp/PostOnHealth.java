@@ -70,15 +70,15 @@ public class PostOnHealth extends AppCompatActivity {
                     String date = healthDate.getText().toString().trim();
 
                     //We must have valid things as categories
-                    if(((!category.equals("Recipes")) || (!category.equals("Food")) || (!category.equals("Tips")) || (!category.equals("Rest"))) && MainActivity.studentNum!=100) {
-                        healthCat.setError("Set Accepted Category");
-                    }
+//                    if(((!category.equals("Recipes")) || (!category.equals("Food")) || (!category.equals("Tips")) || (!category.equals("Rest")))) {
+//                        healthCat.setError("Set Accepted Category");
+//                    }
 
                     //Then if all is good you can post
-                    else{
+                    //else{
 
                         SendPostToServer(PostOnHealth.this,name,description,category,date);
-                    }
+                    //}
                 }
             }
         });
