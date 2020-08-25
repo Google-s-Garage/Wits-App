@@ -13,14 +13,14 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
-@RunWith(AndroidJUnit4.class)
-public class SafeSpaceTest {
-    @Rule
-    public ActivityTestRule<SafeSpace> safeSpaceActivityTestRule = new ActivityTestRule<>(SafeSpace.class);
-
-    @Test
-    public void ClickButtn(){
-        onView(withId(R.id.chatRoomBtn)).perform(click());
-    }
-
-}
+//@RunWith(AndroidJUnit4.class)
+//public class SafeSpaceTest {
+//    @Rule
+//    public ActivityTestRule<SafeSpace> safeSpaceActivityTestRule = new ActivityTestRule<>(SafeSpace.class);
+//
+//    @Test
+//    public void ClickButtn(){
+//        onView(withId(R.id.chatRoomBtn)).perform(click());
+//    }
+//
+//}
