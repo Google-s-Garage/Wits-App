@@ -9,16 +9,19 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
-@RunWith(AndroidJUnit4.class)
-public class safeSpaceDiscussionsTest {
 
+@RunWith(AndroidJUnit4.class)
+public class beforeHealthTest {
     @Rule
-    public ActivityTestRule<safeSpaceDiscussions>  safeSpaceDiscussionsActivityTestRule = new ActivityTestRule<>(safeSpaceDiscussions.class);
+    public ActivityTestRule<beforeHealth> beforeHealthActivityTestRule = new ActivityTestRule<>(beforeHealth.class);
 
     @Test
-    public void clickable(){
-        onView(withId(R.id.add_discussion)).perform(click());
+    public void enterHealth(){
+        onView(withId(R.id.Student)).perform(click());
+        onView(withId(R.id.add_health_post)).perform(click());
+
     }
 }
