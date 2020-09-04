@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".viewHealthPostDetails"></activity>
+        <activity android:name=".viewHealthPostDetails" />
         <activity android:name=".PostOnHealth" />
         <activity android:name=".Restaurant" />
         <activity android:name=".beforeHealth" />
@@ -26,6 +26,9 @@
         <activity android:name=".MyDiscussionsB" />
         <activity android:name=".ActiveDiscussionsB" />
         <activity android:name=".safeSpaceB" />
+        <activity android:name=".AccomTypes"/>
+        <activity android:name=".AccomodationMain"/>
+        <activity android:name=".ProfilePage"/>
         <activity android:name=".photographyUploader" />
         <activity android:name=".photographyActivity" />
         <activity android:name=".creativesActivity" />
