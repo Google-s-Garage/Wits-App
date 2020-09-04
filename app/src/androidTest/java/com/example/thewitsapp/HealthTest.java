@@ -11,14 +11,15 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
+
 @RunWith(AndroidJUnit4.class)
-public class safeSpaceDiscussionsTest {
-
+public class HealthTest {
     @Rule
-    public ActivityTestRule<safeSpaceDiscussions>  safeSpaceDiscussionsActivityTestRule = new ActivityTestRule<>(safeSpaceDiscussions.class);
+    public ActivityTestRule<Health> healthActivityTestRule = new ActivityTestRule<>(Health.class);
 
-//    @Test
-//    public void clickable(){
-//        onView(withId(R.id.add_discussion)).perform(click());
-//    }
+    @Test
+    public void clickFloatBttn(){
+        onView(withId(R.id.add_health_post)).perform(click());
+    }
+
 }
