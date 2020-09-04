@@ -34,45 +34,18 @@ public class LoginTest {
     @Rule
     public ActivityTestRule<Login> LoginTestRule = new ActivityTestRule<>(Login.class);
 
-
-    @Test
-    public void testLaunch(){
-        onView(withText("Welcome To The Wits App")).check(matches(isDisplayed()));
-//        onView(withId(R.id.Login)).perform(click());
-//        onView(withId(R.id.Signup)).perform(click());
-    }
-
     @Test
     public void loginTest(){
+        onView(withText("Welcome To The Wits App")).check(matches(isDisplayed()));
         onView(withId(R.id.Login)).perform(click());
-        onView(withId(R.id.studentNumberLogin))
-                .perform(typeText("1872817"), closeSoftKeyboard());
-
-        Espresso.onView(withId(R.id.passwordLogin))
-                .perform(typeText("khutso.1999"), closeSoftKeyboard());
-        onView(withId(R.id.login_button))
-                .perform(click());
+//        onView(withId(R.id.studentNumberLogin))
+//                .perform(typeText("1872817"), closeSoftKeyboard());
+//
+//        Espresso.onView(withId(R.id.passwordLogin))
+//                .perform(typeText("khutso.1999"), closeSoftKeyboard());
+//        onView(withId(R.id.login_button))
+//                .perform(click());
     }
 
-//    @Test
-//    public void registerTest(){
-//        onView(withId(R.id.Signup)).perform(click());
-//        onView(withId(R.id.name))
-//                .perform(typeText("Me22"), closeSoftKeyboard());
-//        onView(withId(R.id.surname))
-//                .perform(typeText("Happy2"), closeSoftKeyboard());
-//        onView(withId(R.id.stdNumber))
-//                .perform(typeText("0072"), closeSoftKeyboard());
-//        onView(withId(R.id.createPass))
-//                .perform(typeText("01010"), closeSoftKeyboard());
-//        onView(withId(R.id.veriPass))
-//                .perform(typeText("01010"), closeSoftKeyboard());
-//        onView(withId(R.id.email))
-//                .perform(typeText("me2@gmail.com"), closeSoftKeyboard());
-//        onView(withId(R.id.veriEmail))
-//                .perform(typeText("me2@gmail.com"), closeSoftKeyboard());
-//        onView(withId(R.id.regiButton)).perform(click());
-//
-//    }
 
 }

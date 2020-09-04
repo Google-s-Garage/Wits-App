@@ -2,6 +2,8 @@ package com.example.thewitsapp;
 
 import android.media.MediaPlayer;
 
+import androidx.test.espresso.ViewAssertion;
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -12,6 +14,8 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
@@ -23,7 +27,7 @@ public class creativesActivityTest {
     public ActivityTestRule<creativesActivity> creativesActivityActivityTestRule = new ActivityTestRule<>(creativesActivity.class);
 
     @Test
-    public void clickedBotton(){
+    public void photographyClick(){
         onView(withId(R.id.photograpy)).perform(click());
         onView(withId(R.id.add_photography_post)).perform(click());
 //        onView(withId(R.id.enter_contacts)).perform(typeText("072 7700 256"));
@@ -35,5 +39,19 @@ public class creativesActivityTest {
         //onView(withId(R.id.photography_flaot_caption)).perform(click());
 
 
+    }
+    @Test
+    public void musicClick(){
+        onView(withId(R.id.music))
+                .perform(ViewActions.scrollTo())
+                .check(matches(isDisplayed()));
+        onView(withId(R.id.music)).perform(click());
+    }
+    @Test
+    public void visualArtClick(){
+        onView(withId(R.id.visualArt))
+                .perform(ViewActions.scrollTo())
+                .check(matches(isDisplayed()));
+        onView(withId(R.id.visualArt)).perform(click());
     }
 }
