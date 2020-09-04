@@ -192,6 +192,7 @@
                         android:src="@drawable/health_main"
                         />
                     <TextView
+                        android:id="@+id/health"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Health"
@@ -229,6 +230,7 @@
                         android:src="@drawable/accomodation"
                         />
                     <TextView
+                        android:id="@+id/accomodation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Accomodation"

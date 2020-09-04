@@ -31,24 +31,24 @@ public class MenuActivityTest {
 //    }
     @Test
     public void clickSafeSpaceCard(){
-        onView(withId(R.id.safespaceCard)).perform(click());
+        onView(withId(R.id.safespace)).perform(click());
         onView(withId(R.id.add_discussion)).perform(click());
     }
     @Test
     public void clickHealthCard(){
-        onView(withId(R.id.healthCard)).perform(click());
+        onView(withId(R.id.health)).perform(click());
         onView(withId(R.id.Student)).perform(click());
     }
 
     @Test
     public void clickAccommodationsCard(){
-        onView(withId(R.id.accomodationCard)).perform(click());
+        onView(withId(R.id.accomodation)).perform(click());
         onView(withId(R.id.apply)).perform(click());
     }
 
     @Test
     public void clickCreativeCard(){
-        onView(withId(R.id.creativesCard)).perform(click());
+        onView(withId(R.id.creatives)).perform(click());
         onView(withId(R.id.photograpy)).perform(click());
     }
 }
