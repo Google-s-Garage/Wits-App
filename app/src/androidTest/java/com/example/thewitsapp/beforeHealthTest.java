@@ -1,6 +1,5 @@
 package com.example.thewitsapp;
 
-import androidx.annotation.ContentView;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -10,17 +9,19 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
-//@RunWith(AndroidJUnit4.class)
-//public class SafeSpaceTest {
-//    @Rule
-//    public ActivityTestRule<SafeSpace> safeSpaceActivityTestRule = new ActivityTestRule<>(SafeSpace.class);
-//
-//    @Test
-//    public void ClickButtn(){
-//        onView(withId(R.id.chatRoomBtn)).perform(click());
-//    }
-//
-//}
+@RunWith(AndroidJUnit4.class)
+public class beforeHealthTest {
+    @Rule
+    public ActivityTestRule<beforeHealth> beforeHealthActivityTestRule = new ActivityTestRule<>(beforeHealth.class);
+
+    @Test
+    public void enterHealth(){
+        onView(withId(R.id.Student)).perform(click());
+        onView(withId(R.id.add_health_post)).perform(click());
+
+    }
+}
