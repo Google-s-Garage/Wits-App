@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ProfilePage"/>
         <activity android:name=".viewHealthPostDetails"></activity>
         <activity android:name=".AccomodationMain"/>
         <activity android:name=".AccomTypes"/>
