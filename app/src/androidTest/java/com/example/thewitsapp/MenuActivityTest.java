@@ -22,36 +22,15 @@ public class MenuActivityTest {
     @Rule
     public ActivityTestRule<MenuActivity> menuActivityActivityTestRule = new ActivityTestRule<>(MenuActivity.class);
 
-//    @Test
-//    public void clickProfileCard(){
-//        onView(withId(R.id.profileCard)).perform(click());
-//    I'll test after they have implemented
-//    }
-//    @Test
-//    public void clickOverFlowCard(){
-//        onView(withId(R.id.overflowCard)).perform(click());
-//        //I'll be back for you
-//    }
     @Test
     public void clickSafeSpaceCard(){
         onView(withText("Safe Space")).check(matches(isDisplayed()));
-        onView(withId(R.id.safespace)).perform(click());
+        onView(withText("Health")).check(matches(isDisplayed()));
+        onView(withText("Overflow")).check(matches(isDisplayed()));
+        onView(withText("Accomodation")).check(matches(isDisplayed()));
+        onView(withText("Creatives")).check(matches(isDisplayed()));
+        onView(withText("Profile")).check(matches(isDisplayed()));
+        onView(withId(R.id.safespace)).perform(click());;
     }
-//    @Test
-//    public void clickHealthCard(){
-//        onView(withId(R.id.health)).perform(click());
-//        onView(withId(R.id.Student)).perform(click());
-//    }
-//
-//    @Test
-//    public void clickAccommodationsCard(){
-//        onView(withId(R.id.accomodation)).perform(click());
-//        onView(withId(R.id.apply)).perform(click());
-//    }
-//
-//    @Test
-//    public void clickCreativeCard(){
-//        onView(withId(R.id.creatives)).perform(click());
-//        onView(withId(R.id.photograpy)).perform(click());
-//    }
+
 }
