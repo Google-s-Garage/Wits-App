@@ -22,15 +22,11 @@ public class MenuActivityTest {
     @Rule
     public ActivityTestRule<MenuActivity> menuActivityActivityTestRule = new ActivityTestRule<>(MenuActivity.class);
 
+
     @Test
     public void clickSafeSpaceCard(){
         onView(withText("Safe Space")).check(matches(isDisplayed()));
-        onView(withText("Health")).check(matches(isDisplayed()));
-        onView(withText("Overflow")).check(matches(isDisplayed()));
-        onView(withText("Accomodation")).check(matches(isDisplayed()));
-        onView(withText("Creatives")).check(matches(isDisplayed()));
-        onView(withText("Profile")).check(matches(isDisplayed()));
-        onView(withId(R.id.safespace)).perform(click());;
+        onView(withId(R.id.safespace)).perform(click());
     }
 
 }
