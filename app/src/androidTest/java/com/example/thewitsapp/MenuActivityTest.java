@@ -36,7 +36,6 @@ public class MenuActivityTest {
     public void clickSafeSpaceCard(){
         onView(withText("Safe Space")).check(matches(isDisplayed()));
         onView(withId(R.id.safespace)).perform(click());
-        onView(withId(R.id.add_discussion)).perform(click());
     }
 //    @Test
 //    public void clickHealthCard(){
