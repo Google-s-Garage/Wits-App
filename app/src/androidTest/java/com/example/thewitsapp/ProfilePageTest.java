@@ -8,25 +8,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
-public class MenuActivityTest {
+
+public class ProfilePageTest {
 
     @Rule
-    public ActivityTestRule<MenuActivity> menuActivityActivityTestRule = new ActivityTestRule<>(MenuActivity.class);
-
+    public ActivityTestRule<ProfilePage> profilePageActivityTestRule = new ActivityTestRule<>(ProfilePage.class);
 
     @Test
-    public void clickSafeSpaceCard(){
-        onView(withText("Safe Space")).check(matches(isDisplayed()));
-        onView(withId(R.id.safespace)).perform(click());
+    public void appears(){
+        onView(withText("1810589")).check(matches(isDisplayed())); //I have to retreive the st no: from the variable
     }
-
 }
