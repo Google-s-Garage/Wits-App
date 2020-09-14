@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/darktexture"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Recipe_activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#2d2d2d"
+                android:id="@+id/foodthumbnail"
+                android:scaleType="centerCrop"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:id="@+id/dish_nameTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text = "@string/dish_name"
+                android:textColor="@color/white"
+                android:fontFamily="casual"
+                android:typeface="serif"
+                android:layout_marginTop="10dp"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recipe"
+                android:textColor="@color/black"
+                android:background="#edecec"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/recipeTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:text="@string/instructions"/>
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

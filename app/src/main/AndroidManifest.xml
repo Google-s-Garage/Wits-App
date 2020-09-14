@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.thewitsapp">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/witlogo"
@@ -10,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Recipe_activity"></activity>
         <activity android:name=".viewHealthPostDetails" />
         <activity android:name=".PostOnHealth" />
         <activity android:name=".Restaurant" />
@@ -26,9 +30,9 @@
         <activity android:name=".MyDiscussionsB" />
         <activity android:name=".ActiveDiscussionsB" />
         <activity android:name=".safeSpaceB" />
-        <activity android:name=".AccomTypes"/>
-        <activity android:name=".AccomodationMain"/>
-        <activity android:name=".ProfilePage"/>
+        <activity android:name=".AccomTypes" />
+        <activity android:name=".AccomodationMain" />
+        <activity android:name=".ProfilePage" />
         <activity android:name=".photographyUploader" />
         <activity android:name=".photographyActivity" />
         <activity android:name=".creativesActivity" />
@@ -50,8 +54,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardview_id"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="128dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/spinach"/>
+        
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:layout_weight="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_name"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:typeface="serif"
+                android:text="Spinach"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/item_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Restaurant Name"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/item_ingredients"
+                android:textSize="12sp"
+                android:layout_marginTop="12dp"
+                android:typeface="serif"
+                android:text="Ingredients: "
+                android:layout_marginLeft="10dp"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="120dp"
+                android:layout_height="60dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            android:text="Price(R)"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/capsule"/>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

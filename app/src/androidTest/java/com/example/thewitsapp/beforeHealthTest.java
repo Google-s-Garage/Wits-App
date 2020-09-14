@@ -21,7 +21,7 @@ public class beforeHealthTest {
     @Test
     public void enterHealth(){
         onView(withId(R.id.Student)).perform(click());
-        onView(withId(R.id.add_health_post)).perform(click());
+        //onView(withId(R.id.add_health_post)).perform(click());
 
     }
 }
