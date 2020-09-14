@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class HealthAdapter extends RecyclerView.Adapter<HealthAdapter.ViewHolder> {
@@ -47,7 +49,11 @@ public class HealthAdapter extends RecyclerView.Adapter<HealthAdapter.ViewHolder
         price = holder.item_price;
         ingredients = holder.item_ingredients;
 
-        image.setImageResource(foodItem.getImage());
+        Glide.with(holder.cardView)
+                .load(foodItem.getImage())
+                .into(image);
+
+        //image.setImageResource(foodItem.getImage());
 
         name.setText(foodItem.getName());
         place.setText(foodItem.getPlace());

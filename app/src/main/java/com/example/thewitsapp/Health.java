@@ -43,6 +43,12 @@ public class Health extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health);
 
+        recyclerView = findViewById(R.id.rView);
+
+        Intent intent = getIntent();
+        String cat = intent.getExtras().getString("CAT");
+        getFromServer(cat);
+
         //initializing the Horizontal scrollViews:
         /*RestHolder = findViewById(R.id.restauratsHorizontalHolder);
         RecipeHolder = findViewById(R.id.RecipesHorizontalHolder);
@@ -69,25 +75,25 @@ public class Health extends AppCompatActivity {
             }
         });*/
 
-        foodsList = new ArrayList<>();
+        //foodsList = new ArrayList<>();
 
         //this is where you add the dishes from the server
         String recipe = "Just add water then you're good to go, or simply add anything that you want to add then cook it for 112 minutes tops";
 
-        foodsList.add(new ModelFood(R.drawable.chow_mein, "Chow Mein", "Kara Nichas", "R25", "Ingredients: Noodles, chicken strips, vegetable mix",recipe));
-        foodsList.add(new ModelFood(R.drawable.mogodu, "Mogodu", "Khutso's Restaurant", "R20", "Ingredients: Beef tripe, potatoes, onions, beef broth",recipe));
-        foodsList.add(new ModelFood(R.drawable.sandwich, "Healthy Sandwich", "Sizwe's Restaurant", "R15", "Ingredients: Brown bread, cheese, 3 eggs, bacon",recipe));
-        foodsList.add(new ModelFood(R.drawable.spicy_chicken, "Spicy Chicken", "Xolani's Restaurant", "R35", "Ingredients: chicken breasts, carrots, potatoes, lentils",recipe));
-        foodsList.add(new ModelFood(R.drawable.steak_caper_stroganoff, "Steak stroganoff", "Percy's place", "R27", "Ingredients: Italian noodles, mayo, chicken strips",recipe));
-
-        recyclerView = findViewById(R.id.rView);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        RecyclerView.LayoutManager rvLayManager = layoutManager;
-        recyclerView.setLayoutManager(rvLayManager);
-
-        HealthAdapter healthAdapter = new HealthAdapter(this, foodsList);
-        recyclerView.setAdapter(healthAdapter);
+//        foodsList.add(new ModelFood(R.drawable.chow_mein, "Chow Mein", "Kara Nichas", "R25", "Ingredients: Noodles, chicken strips, vegetable mix",recipe));
+//        foodsList.add(new ModelFood(R.drawable.mogodu, "Mogodu", "Khutso's Restaurant", "R20", "Ingredients: Beef tripe, potatoes, onions, beef broth",recipe));
+//        foodsList.add(new ModelFood(R.drawable.sandwich, "Healthy Sandwich", "Sizwe's Restaurant", "R15", "Ingredients: Brown bread, cheese, 3 eggs, bacon",recipe));
+//        foodsList.add(new ModelFood(R.drawable.spicy_chicken, "Spicy Chicken", "Xolani's Restaurant", "R35", "Ingredients: chicken breasts, carrots, potatoes, lentils",recipe));
+//        foodsList.add(new ModelFood(R.drawable.steak_caper_stroganoff, "Steak stroganoff", "Percy's place", "R27", "Ingredients: Italian noodles, mayo, chicken strips",recipe));
+//
+//        recyclerView = findViewById(R.id.rView);
+//
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//        RecyclerView.LayoutManager rvLayManager = layoutManager;
+//        recyclerView.setLayoutManager(rvLayManager);
+//
+//        HealthAdapter healthAdapter = new HealthAdapter(this, foodsList);
+//        recyclerView.setAdapter(healthAdapter);
     }
 
 /*
@@ -265,4 +271,69 @@ public class Health extends AppCompatActivity {
         }.execute();
 
     }*/
+
+//I need a way to make this more looky
+
+
+    @SuppressLint("StaticFieldLeak")
+    public void getFromServer(final String category){
+
+        foodsList = new ArrayList<>();
+
+
+        ContentValues contentValues = new ContentValues();
+
+        new ServerCommunicator("https://lamp.ms.wits.ac.za/~s1872817/getHealthPosts.php", contentValues) {
+            @Override
+            protected void onPostExecute(String output) {
+
+                if(output.equals("0")){
+
+                    Toast.makeText(Health.this,"Some toast",Toast.LENGTH_SHORT).show();
+                }
+
+                else{
+
+                    try {
+                        JSONArray jsonArray = new JSONArray(output);
+
+                        for(int i=0; i < jsonArray.length(); i++){
+
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                            if(jsonObject.getString("CAT").equals(category)){
+
+                                String pName = jsonObject.getString("POST_NAME");
+                                String stdNum = jsonObject.getString("STUDENT_NUM");
+                                String pDesc = jsonObject.getString("POST_DESCRIP");
+                                String pdate = jsonObject.getString("DATE");
+
+                                String imgURL = "https://lamp.ms.wits.ac.za/~s1872817/HealthPostImgs/"+stdNum+pName+".JPG";
+
+                                foodsList.add(new ModelFood(imgURL, pName, stdNum, category, pdate,pDesc));
+
+
+                            }
+
+                            LinearLayoutManager layoutManager = new LinearLayoutManager(Health.this);
+                            RecyclerView.LayoutManager rvLayManager = layoutManager;
+                            recyclerView.setLayoutManager(rvLayManager);
+
+                            HealthAdapter healthAdapter = new HealthAdapter(Health.this, foodsList);
+                            recyclerView.setAdapter(healthAdapter);
+                        }
+
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+            }
+        }.execute();
+    }
+
+
 }

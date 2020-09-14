@@ -1,12 +1,26 @@
 package com.example.thewitsapp;
 
+import com.bumptech.glide.Glide;
+
 public class ModelFood {
 
     private int image;
+    private String image0;
     private String ingredients,name,place,price,recipe;
 
-    public ModelFood(int image, String name, String place, String price, String ingredients, String recipe) {
-        this.image = image;
+//    public ModelFood(int image, String name, String place, String price, String ingredients, String recipe) {
+//
+//        this.image = image;
+//        this.recipe = recipe;
+//        this.name = name;
+//        this.place = place;
+//        this.price = price;
+//        this.ingredients = ingredients;
+//    }
+
+    public ModelFood(String image, String name, String place, String price, String ingredients, String recipe) {
+
+        this.image0 = image;
         this.recipe = recipe;
         this.name = name;
         this.place = place;
@@ -18,8 +32,8 @@ public class ModelFood {
 
     public void setRecipe(String recipe) { this.recipe = recipe; }
 
-    public int getImage() {
-        return image;
+    public String getImage() {
+        return image0;
     }
 
     public void setImage(int image) {
