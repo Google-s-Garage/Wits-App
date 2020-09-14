@@ -20,6 +20,6 @@ public class AccomodationMainTest {
      @Test
     public void clickable(){
          onView(withId(R.id.apply)).perform(click());
-//         onView(withId(R.id.accomodationCard)).perform(click());
+         onView(withId(R.id.accomodationCard)).perform(click());
      }
 }

@@ -1,6 +1,8 @@
 package com.example.thewitsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -31,6 +33,8 @@ public class Health extends AppCompatActivity {
     //This where the student will come in.
     LinearLayout RestHolder, RecipeHolder, TipsHolder,FoodsHolder;
 
+    RecyclerView recyclerView;
+    ArrayList<ModelFood> foodsList;
     //
     LinearLayout RestRecHolder, RecipeRecHolder, FoodRecHolder, TipsRecHolder;
 
@@ -40,7 +44,7 @@ public class Health extends AppCompatActivity {
         setContentView(R.layout.activity_health);
 
         //initializing the Horizontal scrollViews:
-        RestHolder = findViewById(R.id.restauratsHorizontalHolder);
+        /*RestHolder = findViewById(R.id.restauratsHorizontalHolder);
         RecipeHolder = findViewById(R.id.RecipesHorizontalHolder);
         FoodsHolder = findViewById(R.id.FoodsHorizontalHolder);
         TipsHolder = findViewById(R.id.HealthHorizontalHolder);
@@ -51,10 +55,11 @@ public class Health extends AppCompatActivity {
         RecipeRecHolder = findViewById(R.id.ourRecipRecommendations);
         FoodRecHolder = findViewById(R.id.ourFoodsRecommendations);
         TipsRecHolder = findViewById(R.id.ourHealthTipsRecommendations);
-
+        */
 
         //For adding new Post
-        FloatingActionButton addHealthPost = findViewById(R.id.add_health_post);
+
+        /*FloatingActionButton addHealthPost = findViewById(R.id.add_health_post);
         addHealthPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,10 +67,30 @@ public class Health extends AppCompatActivity {
                 startActivity(new Intent(Health.this, PostOnHealth.class));
                 //Toast.makeText(Health.this,"I have been clicked",Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
+
+        foodsList = new ArrayList<>();
+
+        //this is where you add the dishes from the server
+        String recipe = "Just add water then you're good to go, or simply add anything that you want to add then cook it for 112 minutes tops";
+
+        foodsList.add(new ModelFood(R.drawable.chow_mein, "Chow Mein", "Kara Nichas", "R25", "Ingredients: Noodles, chicken strips, vegetable mix",recipe));
+        foodsList.add(new ModelFood(R.drawable.mogodu, "Mogodu", "Khutso's Restaurant", "R20", "Ingredients: Beef tripe, potatoes, onions, beef broth",recipe));
+        foodsList.add(new ModelFood(R.drawable.sandwich, "Healthy Sandwich", "Sizwe's Restaurant", "R15", "Ingredients: Brown bread, cheese, 3 eggs, bacon",recipe));
+        foodsList.add(new ModelFood(R.drawable.spicy_chicken, "Spicy Chicken", "Xolani's Restaurant", "R35", "Ingredients: chicken breasts, carrots, potatoes, lentils",recipe));
+        foodsList.add(new ModelFood(R.drawable.steak_caper_stroganoff, "Steak stroganoff", "Percy's place", "R27", "Ingredients: Italian noodles, mayo, chicken strips",recipe));
+
+        recyclerView = findViewById(R.id.rView);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager rvLayManager = layoutManager;
+        recyclerView.setLayoutManager(rvLayManager);
+
+        HealthAdapter healthAdapter = new HealthAdapter(this, foodsList);
+        recyclerView.setAdapter(healthAdapter);
     }
 
-
+/*
     //We will work in here
     @Override
     protected void onResume() {
@@ -239,5 +264,5 @@ public class Health extends AppCompatActivity {
             }
         }.execute();
 
-    }
+    }*/
 }
