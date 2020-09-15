@@ -26,16 +26,16 @@ public class RegisterTest {
         onView(withId(R.id.surname))
                 .perform(typeText("Happy2"), closeSoftKeyboard());
         onView(withId(R.id.stdNumber))
-                .perform(typeText("0072"), closeSoftKeyboard());
-        onView(withId(R.id.createPass))
-                .perform(typeText("01010"), closeSoftKeyboard());
-        onView(withId(R.id.veriPass))
-                .perform(typeText("01010"), closeSoftKeyboard());
-        onView(withId(R.id.email))
-                .perform(typeText("me2@gmail.com"), closeSoftKeyboard());
-        onView(withId(R.id.veriEmail))
-                .perform(typeText("me2@gmail.com"), closeSoftKeyboard());
-        onView(withId(R.id.regiButton)).perform(click());
+                .perform(typeText("072"), closeSoftKeyboard());
+//        onView(withId(R.id.createPass))
+//                .perform(typeText("01010"), closeSoftKeyboard());
+//        onView(withId(R.id.veriPass))
+//                .perform(typeText("01010"), closeSoftKeyboard());
+//        onView(withId(R.id.email))
+//                .perform(typeText("me2@gmail.com"), closeSoftKeyboard());
+//        onView(withId(R.id.veriEmail))
+//                .perform(typeText("me2@gmail.com"), closeSoftKeyboard());
+//        onView(withId(R.id.regiButton)).perform(click());
 
     }
 }
