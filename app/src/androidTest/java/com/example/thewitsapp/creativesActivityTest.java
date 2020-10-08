@@ -40,11 +40,11 @@ public class creativesActivityTest {
 
 
     }
-    @Test
-    public void musicClick(){
-        onView(withId(R.id.music)).perform(ViewActions.scrollTo(), click());
+//    @Test
+//    public void musicClick(){
+//        onView(withId(R.id.music)).perform(ViewActions.scrollTo(), click());
 //        onView(withId(R.id.music)).perform(click());
-    }
+//    }
     @Test
     public void visualArtClick(){
         onView(withId(R.id.visualArt))
