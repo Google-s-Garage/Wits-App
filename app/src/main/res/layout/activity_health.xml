@@ -26,6 +26,7 @@
             app:layout_scrollFlags="scroll|enterAlways">
 
             <ImageView
+                android:id="@+id/picture"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:background="@color/white"
