@@ -120,12 +120,12 @@
 
         <Button
             android:id="@+id/post_to_creatives"
-            android:background="#00BCD4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Post"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_gravity="center"/>
+            android:background="#00BCD4"
+            android:text="Post" />
 
     </LinearLayout>
 
