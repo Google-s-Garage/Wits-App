@@ -41,7 +41,7 @@
         <EditText
             android:id="@+id/myDiscEditText"
             android:layout_width="339dp"
-            android:layout_height="57dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="3dp"
             android:background="@drawable/radius_corner_background"
@@ -50,14 +50,19 @@
             android:inputType="textLongMessage|textMultiLine" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/MyDiscsendButton"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:layout_marginLeft="5dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
-            android:src="@drawable/ic_send_white" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.923"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.948"
+            android:id="@+id/MyDiscsendButton"
+            android:src="@drawable/ic_edit_comment_overflow">
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     </LinearLayout>
 
