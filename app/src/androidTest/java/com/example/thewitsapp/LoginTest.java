@@ -50,6 +50,10 @@ public class LoginTest {
     public void register(){
         onView(withText("Welcome To The Wits App")).check(matches(isDisplayed()));
         onView(withId(R.id.Signup)).perform(click());
+        Espresso.onView(withId(R.id.name))
+                .perform(typeText("Enter name"), closeSoftKeyboard());
+        Espresso.onView(withId(R.id.surname))
+                .perform(typeText("Enter surname"), closeSoftKeyboard());
     }
 
 

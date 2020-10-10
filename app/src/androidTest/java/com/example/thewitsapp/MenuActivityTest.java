@@ -1,5 +1,6 @@
 package com.example.thewitsapp;
 
+import androidx.test.espresso.action.ViewActions;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -12,6 +13,7 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
@@ -24,19 +26,13 @@ public class MenuActivityTest {
 
 
     @Test
-    public void clickOverflowCard(){
-        onView(withText("Safe Space")).check(matches(isDisplayed()));
-        onView(withId(R.id.overflowCard)).perform(click());
-    }
-    @Test
     public void clickSafeSpaceCard(){
         onView(withText("Safe Space")).check(matches(isDisplayed()));
         onView(withId(R.id.safespace)).perform(click());
-    }
-    @Test
-    public void clickHealthCard(){
-        onView(withText("Safe Space")).check(matches(isDisplayed()));
+        onView(isRoot()).perform(ViewActions.pressBack());
         onView(withId(R.id.health)).perform(click());
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(withId(R.id.overflowCard)).perform(click());
     }
 
 }

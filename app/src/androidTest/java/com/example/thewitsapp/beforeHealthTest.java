@@ -25,6 +25,6 @@ public class beforeHealthTest {
     public void enterHealth(){
         onView(withId(R.id.restaurant)).perform(click());
         //onView(withId(R.id.add_health_post)).perform(click());
-        onView(withId(R.id.picture)).check(matches(isDisplayed()));
+        onView(withId(R.id.rView)).check(matches(isDisplayed()));
     }
 }
