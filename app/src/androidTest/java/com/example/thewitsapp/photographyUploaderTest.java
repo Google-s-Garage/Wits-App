@@ -26,10 +26,10 @@ public class photographyUploaderTest {
     public void enterLocation() {
         onView(withId(R.id.enter_location)).perform(typeText("Wits art musuem"));
     }
-    @Test
-    public void enterDate() {
-        onView(withId(R.id.enter_date)).perform(typeText("01/01/2030"));
-    }
+//    @Test
+//    public void enterDate() {
+//        onView(withId(R.id.enter_date)).perform(typeText("01/01/2030"));
+//    }
 //    @Test
 //    public void enterTime() {
 //        onView(withId(R.id.enter_time)).perform(typeText("12:30"));

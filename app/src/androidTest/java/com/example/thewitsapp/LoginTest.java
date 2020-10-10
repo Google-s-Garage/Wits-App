@@ -46,6 +46,11 @@ public class LoginTest {
 //        onView(withId(R.id.login_button))
 //                .perform(click());
     }
+    @Test
+    public void register(){
+        onView(withText("Welcome To The Wits App")).check(matches(isDisplayed()));
+        onView(withId(R.id.Signup)).perform(click());
+    }
 
 
 }

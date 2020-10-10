@@ -24,9 +24,19 @@ public class MenuActivityTest {
 
 
     @Test
+    public void clickOverflowCard(){
+        onView(withText("Safe Space")).check(matches(isDisplayed()));
+        onView(withId(R.id.overflowCard)).perform(click());
+    }
+    @Test
     public void clickSafeSpaceCard(){
         onView(withText("Safe Space")).check(matches(isDisplayed()));
         onView(withId(R.id.safespace)).perform(click());
+    }
+    @Test
+    public void clickHealthCard(){
+        onView(withText("Safe Space")).check(matches(isDisplayed()));
+        onView(withId(R.id.health)).perform(click());
     }
 
 }
