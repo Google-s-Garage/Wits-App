@@ -1,5 +1,6 @@
 package com.example.thewitsapp;
 
+import androidx.test.espresso.Espresso;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -21,10 +22,10 @@ public class beforeHealthTest {
     @Rule
     public ActivityTestRule<beforeHealth> beforeHealthActivityTestRule = new ActivityTestRule<>(beforeHealth.class);
 
-    @Test
-    public void enterHealth(){
-        onView(withId(R.id.restaurant)).perform(click());
-        //onView(withId(R.id.add_health_post)).perform(click());
-        onView(withId(R.id.rView)).check(matches(isDisplayed()));
-    }
+//    @Test
+//    public void enterHealth(){
+//        Espresso.onView(withId(R.id.restaurant)).perform(click());
+//        //onView(withId(R.id.add_health_post)).perform(click());
+//        Espresso.onView(withId(R.id.rView)).check(matches(isDisplayed()));
+//    }
 }

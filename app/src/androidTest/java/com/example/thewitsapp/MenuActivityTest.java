@@ -30,9 +30,9 @@ public class MenuActivityTest {
         onView(withText("Safe Space")).check(matches(isDisplayed()));
         onView(withId(R.id.safespace)).perform(click());
         onView(isRoot()).perform(ViewActions.pressBack());
-        onView(withId(R.id.health)).perform(click());
-        onView(isRoot()).perform(ViewActions.pressBack());
-        onView(withId(R.id.overflowCard)).perform(click());
+//        onView(withId(R.id.health)).perform(click());
+//        onView(isRoot()).perform(ViewActions.pressBack());
+//        onView(withId(R.id.profileCard)).perform(click());
     }
 
 }

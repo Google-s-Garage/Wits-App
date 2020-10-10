@@ -46,15 +46,5 @@ public class LoginTest {
 //        onView(withId(R.id.login_button))
 //                .perform(click());
     }
-    @Test
-    public void register(){
-        onView(withText("Welcome To The Wits App")).check(matches(isDisplayed()));
-        onView(withId(R.id.Signup)).perform(click());
-        Espresso.onView(withId(R.id.name))
-                .perform(typeText("Enter name"), closeSoftKeyboard());
-        Espresso.onView(withId(R.id.surname))
-                .perform(typeText("Enter surname"), closeSoftKeyboard());
-    }
-
 
 }
