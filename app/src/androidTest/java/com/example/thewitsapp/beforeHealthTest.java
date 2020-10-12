@@ -1,4 +1,4 @@
-package com.example.thewitsapp;
+//package com.example.thewitsapp;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -17,10 +17,10 @@ import static androidx.test.espresso.matcher.ViewMatchers.thatMatchesFirst;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
-@RunWith(AndroidJUnit4.class)
-public class beforeHealthTest {
-    @Rule
-    public ActivityTestRule<beforeHealth> beforeHealthActivityTestRule = new ActivityTestRule<>(beforeHealth.class);
+//@RunWith(AndroidJUnit4.class)
+//public class beforeHealthTest {
+//    @Rule
+//    public ActivityTestRule<beforeHealth> beforeHealthActivityTestRule = new ActivityTestRule<>(beforeHealth.class);
 
 //    @Test
 //    public void enterHealth(){
@@ -28,4 +28,4 @@ public class beforeHealthTest {
 //        //onView(withId(R.id.add_health_post)).perform(click());
 //        Espresso.onView(withId(R.id.rView)).check(matches(isDisplayed()));
 //    }
-}
+//}
