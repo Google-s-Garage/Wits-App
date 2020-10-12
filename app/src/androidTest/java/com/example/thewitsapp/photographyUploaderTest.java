@@ -22,10 +22,10 @@ public class photographyUploaderTest {
     public void enterContacts() {
         onView(withId(R.id.enter_contacts)).perform(typeText("072 770 0256"));
     }
-    @Test
-    public void enterLocation() {
-        onView(withId(R.id.enter_location)).perform(typeText("Wits art musuem"));
-    }
+//    @Test
+//    public void enterLocation() {
+//        onView(withId(R.id.enter_location)).perform(typeText("Wits art musuem"));
+//    }
 //    @Test
 //    public void enterDate() {
 //        onView(withId(R.id.enter_date)).perform(typeText("01/01/2030"));
